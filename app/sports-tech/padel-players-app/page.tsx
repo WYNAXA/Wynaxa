@@ -39,8 +39,16 @@ const features = [
 export default function PadelPlayersAppPage() {
   return (
     <>
-      <section className="border-b-2 border-sports bg-[#0B0F12]">
-        <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36">
+      <section
+        className="relative border-b-2 border-sports bg-[#0B0F12]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(/padel-hero.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36 relative z-10">
           <p className="text-sm font-semibold uppercase tracking-wider text-sports">
             Wynaxa Sports Tech
           </p>

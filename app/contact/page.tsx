@@ -10,16 +10,19 @@ const offices = [
     label: "HQ",
     city: "Dublin",
     country: "Ireland",
+    photo: "/cities/dublin.jpg",
   },
   {
     label: "Office",
     city: "Bristol",
     country: "United Kingdom",
+    photo: "/cities/bristol.jpg",
   },
   {
     label: "Office",
     city: "Surat",
     country: "India",
+    photo: "/cities/surat.jpg",
   },
 ];
 
@@ -48,15 +51,21 @@ export default function ContactPage() {
             {offices.map((office) => (
               <div
                 key={office.city}
-                className="rounded-lg border border-gray-200 p-6"
+                className="relative overflow-hidden rounded-lg p-6"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${office.photo})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  minHeight: "180px",
+                }}
               >
                 <p className="text-xs font-semibold uppercase tracking-wider text-[#0E8C7F]">
                   {office.label}
                 </p>
-                <p className="mt-2 text-lg font-semibold text-[#0B0F12]">
+                <p className="mt-2 text-lg font-semibold text-white">
                   {office.city}
                 </p>
-                <p className="mt-1 text-sm text-gray-600">{office.country}</p>
+                <p className="mt-1 text-sm text-gray-300">{office.country}</p>
               </div>
             ))}
           </div>

@@ -25,3 +25,11 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+.venture-card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.venture-card:hover {
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--card-accent) 25%, transparent);
+}

@@ -12,42 +12,42 @@ const ventures = [
     description: "Digital payments and financial technology",
     href: "/pay",
     color: "bg-pay",
-    borderColor: "border-pay",
+    hex: "#6366F1",
   },
   {
     name: "Wynaxa One",
     description: "Commerce and business operations software",
     href: "/one",
     color: "bg-one",
-    borderColor: "border-one",
+    hex: "#0EA5E9",
   },
   {
     name: "Wynaxa Connect",
     description: "Creator economy and media technology",
     href: "/connect",
     color: "bg-connect",
-    borderColor: "border-connect",
+    hex: "#14B8A6",
   },
   {
     name: "Wynaxa Sports Tech",
     description: "Sports participation and engagement technology",
     href: "/sports-tech",
     color: "bg-sports",
-    borderColor: "border-sports",
+    hex: "#F97316",
   },
   {
     name: "Wynaxa Eco",
     description: "Environmental and sustainability solutions",
     href: "/eco",
     color: "bg-eco",
-    borderColor: "border-eco",
+    hex: "#22C55E",
   },
   {
     name: "Wynaxa Foundry",
     description: "Innovation and venture creation lab",
     href: "/foundry",
     color: "bg-foundry",
-    borderColor: "border-foundry",
+    hex: "#A855F7",
   },
 ];
 
@@ -93,7 +93,14 @@ export default function PortfolioPage() {
               <Link
                 key={v.name}
                 href={v.href}
-                className={`group rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-lg border-t-2 ${v.borderColor}`}
+                className="venture-card group rounded-lg border border-gray-200 bg-white p-6 transition-all"
+                style={
+                  {
+                    borderTopWidth: "2px",
+                    borderTopColor: v.hex,
+                    "--card-accent": v.hex,
+                  } as React.CSSProperties
+                }
               >
                 <div
                   className={`inline-flex h-10 w-10 items-center justify-center rounded-md ${v.color}`}

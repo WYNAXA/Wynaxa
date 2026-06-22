@@ -30,14 +30,16 @@ const portfolio = [
     description: "Digital payments and financial technology",
     href: "/pay",
     color: "bg-pay",
-    borderColor: "border-pay",
+    hex: "#6366F1",
+    product: undefined as string | undefined,
   },
   {
     name: "Wynaxa One",
     description: "Commerce and business operations software",
     href: "/one",
     color: "bg-one",
-    borderColor: "border-one",
+    hex: "#0EA5E9",
+    product: undefined as string | undefined,
   },
   {
     name: "Wynaxa Connect",
@@ -45,7 +47,7 @@ const portfolio = [
     href: "/connect",
     product: "Beat Frame",
     color: "bg-connect",
-    borderColor: "border-connect",
+    hex: "#14B8A6",
   },
   {
     name: "Wynaxa Sports Tech",
@@ -53,21 +55,23 @@ const portfolio = [
     href: "/sports-tech",
     product: "Padel Players App",
     color: "bg-sports",
-    borderColor: "border-sports",
+    hex: "#F97316",
   },
   {
     name: "Wynaxa Eco",
     description: "Environmental and sustainability solutions",
     href: "/eco",
     color: "bg-eco",
-    borderColor: "border-eco",
+    hex: "#22C55E",
+    product: undefined as string | undefined,
   },
   {
     name: "Wynaxa Foundry",
     description: "Innovation and venture creation lab",
     href: "/foundry",
     color: "bg-foundry",
-    borderColor: "border-foundry",
+    hex: "#A855F7",
+    product: undefined as string | undefined,
   },
 ];
 
@@ -155,7 +159,14 @@ export default function Home() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`group rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-lg border-t-2 ${item.borderColor}`}
+                className="venture-card group rounded-lg border border-gray-200 bg-white p-6 transition-all"
+                style={
+                  {
+                    borderTopWidth: "2px",
+                    borderTopColor: item.hex,
+                    "--card-accent": item.hex,
+                  } as React.CSSProperties
+                }
               >
                 <div
                   className={`inline-flex h-10 w-10 items-center justify-center rounded-md ${item.color}`}
