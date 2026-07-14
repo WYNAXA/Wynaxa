@@ -1,279 +1,294 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
+import type { Metadata } from "next";
 
-/*
- * FORM_ENDPOINT — Set this to a Formspree (or similar) endpoint URL to collect
- * pitch-deck request emails. Example: "https://formspree.io/f/xyzabcde"
+export const metadata: Metadata = {
+  title: "Wynaxa — Investor Access",
+  description:
+    "Wynaxa is a venture studio. Our lead venture, Wynaxa Sports Tech, is live in market with the Padel Players App.",
+};
+
+/* ---------------------------------------------------------------------------
+ * NOTE — There is deliberately no pitch-deck download on this page.
  *
- * When set, the email is POSTed as JSON to this endpoint on form submission.
- * When empty, the form falls back to opening a mailto:investors@wynaxa.com
- * link with the submitted email address in the body.
- */
-const FORM_ENDPOINT = "";
+ * The deck is sent manually, on request, after we know who is asking. This is
+ * intentional: it captures who is looking, keeps financials out of a public
+ * /public folder, and avoids publishing an open invitation to invest.
+ *
+ * Do not re-add a public PDF to /public. Do not re-add an auto-download.
+ * ------------------------------------------------------------------------- */
 
-// TODO: Replace public/wynaxa-pitch-deck.pdf with the real pitch deck file.
-const PITCH_DECK_PATH = "/wynaxa-pitch-deck.pdf";
+const INVESTOR_EMAIL = "investors@wynaxa.com";
 
-const verticals = [
-  { name: "Wynaxa Pay", description: "Digital payments & fintech", href: "/pay", hex: "#6366F1" },
-  { name: "Wynaxa One", description: "Commerce & business operations", href: "/one", hex: "#0EA5E9" },
-  { name: "Wynaxa Connect", description: "Creator economy & media technology", href: "/connect", hex: "#14B8A6" },
-  { name: "Wynaxa Sports Tech", description: "Sports participation & engagement", href: "/sports-tech", hex: "#F97316" },
-  { name: "Wynaxa Eco", description: "Environmental & sustainability solutions", href: "/eco", hex: "#22C55E" },
-  { name: "Wynaxa Foundry", description: "Innovation & venture creation lab", href: "/foundry", hex: "#A855F7" },
+const DECK_REQUEST_MAILTO = `mailto:${INVESTOR_EMAIL}?subject=${encodeURIComponent(
+  "Investor materials request",
+)}&body=${encodeURIComponent(
+  [
+    "Please send the Wynaxa investor materials.",
+    "",
+    "Name:",
+    "Organisation:",
+    "Role:",
+    "Areas of interest:",
+    "",
+  ].join("\n"),
+)}`;
+
+/* Lead venture — the one with a product, users and revenue in sight. */
+const SPORTS_TECH_TRACTION = [
+  { value: "77", label: "Registered players" },
+  { value: "169", label: "On the waitlist" },
+  { value: "7", label: "Courts under contract" },
+  { value: "2", label: "App stores, live" },
+];
+
+/* Everything else. Stated as what it is, not dressed up. */
+const PIPELINE = [
+  {
+    name: "Wynaxa Connect",
+    stage: "In build",
+    description: "Creator marketplace (Beat Frame). Pre-launch.",
+    href: "/connect",
+    hex: "#14B8A6",
+  },
+  {
+    name: "Wynaxa Pay",
+    stage: "Concept",
+    description: "Digital payments and fintech infrastructure.",
+    href: "/pay",
+    hex: "#6366F1",
+  },
+  {
+    name: "Wynaxa One",
+    stage: "Concept",
+    description: "Commerce and business operations.",
+    href: "/one",
+    hex: "#0EA5E9",
+  },
+  {
+    name: "Wynaxa Eco",
+    stage: "Concept",
+    description: "Environmental and sustainability solutions.",
+    href: "/eco",
+    hex: "#22C55E",
+  },
+  {
+    name: "Wynaxa Foundry",
+    stage: "Operating",
+    description: "Venture creation lab. Partners with founders on new companies.",
+    href: "/foundry",
+    hex: "#A855F7",
+  },
+];
+
+const MODEL = [
+  {
+    title: "Build",
+    desc: "We create ventures in-house, using shared engineering, payments and infrastructure so each one launches faster and cheaper than it could alone.",
+  },
+  {
+    title: "Scale",
+    desc: "Proven ventures are capitalised and staffed to grow independently, with their own board and their own balance sheet.",
+  },
+  {
+    title: "Partner",
+    desc: "Through Wynaxa Foundry we co-found with operators who bring the domain, while we bring the platform.",
+  },
 ];
 
 export default function InvestmentPage() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
-
-  async function handlePitchDeckRequest(e: React.FormEvent) {
-    e.preventDefault();
-    setError("");
-
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Please enter a valid email address.");
-      return;
-    }
-
-    if (FORM_ENDPOINT) {
-      try {
-        await fetch(FORM_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ email }),
-        });
-      } catch {
-        // Silently continue — still trigger the download
-      }
-    } else {
-      window.open(
-        `mailto:investors@wynaxa.com?subject=Pitch%20Deck%20Request&body=Please%20send%20the%20pitch%20deck%20to%20${encodeURIComponent(email)}`,
-        "_blank",
-      );
-    }
-
-    // Trigger download
-    const link = document.createElement("a");
-    link.href = PITCH_DECK_PATH;
-    link.download = "wynaxa-pitch-deck.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    setSubmitted(true);
-  }
-
   return (
     <>
-      {/* HERO */}
+      {/* --------------------------------------------------------------- HERO */}
       <section className="bg-[#0B0F12]">
         <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36">
           <p className="text-sm font-semibold uppercase tracking-wider text-[#0E8C7F]">
             Investment
           </p>
           <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-            Investor Access
+            One venture live. The studio behind it.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-400">
-            Wynaxa is a venture studio creating, launching and scaling
-            technology businesses — a scalable multi-venture platform, not a
-            single product.
+            Wynaxa builds technology companies. Our lead venture, Wynaxa Sports
+            Tech, is live on both app stores with a signed venue and a booking
+            platform deploying this month. Everything else on this page is
+            secondary to that.
           </p>
         </div>
       </section>
 
-      <section className="bg-white">
+      {/* ------------------------------------------------------- LEAD VENTURE */}
+      <section className="border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-3xl px-6 py-24">
-          {/* VISION */}
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">The Vision</h2>
-          <p className="mt-4 leading-relaxed text-gray-600">
-            Wynaxa is building a portfolio of technology businesses under one
-            studio. Rather than betting on a single product, we operate as a
-            scalable multi-venture platform — creating, launching and growing
-            companies across high-growth sectors. Each new venture adds to the
-            platform; each shared capability accelerates the next.
+          <p className="text-sm font-semibold uppercase tracking-wider text-[#F97316]">
+            Lead Venture
           </p>
-
-          {/* THE MODEL */}
-          <h2 className="mt-16 text-2xl font-semibold text-[#0B0F12]">
-            The Model
+          <h2 className="mt-3 text-2xl font-semibold text-[#0B0F12]">
+            Wynaxa Sports Tech
           </h2>
           <p className="mt-4 leading-relaxed text-gray-600">
-            We build, acquire, scale and partner. A portfolio approach means
-            multiple shots on goal, shared infrastructure and compounding
-            advantage. Every venture benefits from centralised product,
-            engineering and growth capability — reducing cost, accelerating time
-            to market and increasing the probability of outsized outcomes.
+            An Irish-incorporated company (CRO 802571), wholly owned by WYNAXA
+            Limited, with its own board and capital structure. It holds the Padel
+            Players App and the Wynaxa venue booking platform.
           </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {[
-              { title: "Build", desc: "Identifying market opportunities and creating technology businesses from the ground up." },
-              { title: "Acquire", desc: "Acquiring promising technology businesses and integrating them into the portfolio." },
-              { title: "Scale", desc: "Providing capital, infrastructure and expertise to accelerate venture growth." },
-              { title: "Partner", desc: "Collaborating with exceptional founders to bring their vision to market." },
-            ].map((pillar) => (
-              <div
-                key={pillar.title}
-                className="rounded-lg border border-gray-100 p-5"
-              >
-                <h3 className="font-semibold text-[#0B0F12]">
-                  {pillar.title}
-                </h3>
-                <p className="mt-1 text-sm leading-relaxed text-gray-600">
-                  {pillar.desc}
+
+          <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-lg bg-gray-200 sm:grid-cols-4">
+            {SPORTS_TECH_TRACTION.map((stat) => (
+              <div key={stat.label} className="bg-white p-6">
+                <p className="text-3xl font-semibold tracking-tight text-[#0B0F12]">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-xs leading-snug text-gray-500">
+                  {stat.label}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* PORTFOLIO & TRACTION */}
-          <h2 className="mt-16 text-2xl font-semibold text-[#0B0F12]">
-            Portfolio &amp; Traction
-          </h2>
-          <p className="mt-4 leading-relaxed text-gray-600">
-            Six verticals spanning fintech, commerce, creator economy, sports
-            technology, sustainability and innovation. Two products are already
-            live in market.
+          <p className="mt-4 text-sm text-gray-500">
+            Launched mid-June 2026. No paid acquisition to date. Figures as at
+            14 July 2026.
           </p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {verticals.map((v) => (
+          <div className="mt-8 border-l-2 border-[#F97316] pl-6">
+            <p className="leading-relaxed text-gray-600">
+              The waitlist is the signal. One QR code, in one venue, for two
+              weeks — no advertising, and we did not tell anyone the app had
+              launched. 169 players scanned it and left their details. That
+              mechanic repeats at every venue we sign.
+            </p>
+          </div>
+
+          <Link
+            href="/sports-tech"
+            className="mt-8 inline-flex items-center text-sm font-medium text-[#F97316] hover:underline"
+          >
+            The full Sports Tech case &rarr;
+          </Link>
+        </div>
+      </section>
+
+      {/* -------------------------------------------------------------- MODEL */}
+      <section className="border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-3xl px-6 py-24">
+          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+            Why a studio
+          </h2>
+          <p className="mt-4 leading-relaxed text-gray-600">
+            A venture studio is only worth anything to an investor if it makes
+            each venture more likely to succeed. Ours does one specific thing:
+            it lets a company like Sports Tech ship payments, identity,
+            infrastructure and mobile releases without building any of it from
+            scratch. The studio is the cost base. The venture is the business.
+          </p>
+
+          <div className="mt-8 space-y-4">
+            {MODEL.map((pillar) => (
+              <div
+                key={pillar.title}
+                className="rounded-lg border border-gray-200 bg-white p-6"
+              >
+                <h3 className="font-semibold text-[#0B0F12]">{pillar.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {pillar.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------------- PIPELINE */}
+      <section className="border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-3xl px-6 py-24">
+          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+            The rest of the studio
+          </h2>
+          <p className="mt-4 leading-relaxed text-gray-600">
+            We are transparent about stage. One venture is live. One is in
+            build. The remainder are concepts held for when the platform and the
+            team can support them properly.
+          </p>
+
+          <div className="mt-8 space-y-3">
+            {PIPELINE.map((v) => (
               <Link
                 key={v.name}
                 href={v.href}
-                className="venture-card group rounded-lg border border-gray-200 bg-white p-4 transition-all"
+                className="venture-card group flex items-start justify-between gap-6 rounded-lg border border-gray-200 bg-white p-5 transition-all"
                 style={
                   {
-                    borderTopWidth: "2px",
-                    borderTopColor: v.hex,
+                    borderLeftWidth: "3px",
+                    borderLeftColor: v.hex,
                     "--card-accent": v.hex,
                   } as React.CSSProperties
                 }
               >
-                <h3 className="text-sm font-semibold text-[#0B0F12] group-hover:text-[#0E8C7F] transition-colors">
-                  {v.name}
-                </h3>
-                <p className="mt-1 text-xs text-gray-500">{v.description}</p>
+                <div>
+                  <h3 className="text-sm font-semibold text-[#0B0F12] transition-colors group-hover:text-[#0E8C7F]">
+                    {v.name}
+                  </h3>
+                  <p className="mt-1 text-xs text-gray-500">{v.description}</p>
+                </div>
+                <span className="flex-shrink-0 rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
+                  {v.stage}
+                </span>
               </Link>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-8 rounded-lg border-l-4 border-[#0E8C7F] bg-gray-50 p-6">
-            <p className="font-semibold text-[#0B0F12]">Live in Market</p>
-            <ul className="mt-3 space-y-2">
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#F97316]" />
-                <span className="text-gray-600">
-                  <Link
-                    href="/sports-tech/padel-players-app"
-                    className="font-medium text-[#0B0F12] hover:text-[#0E8C7F] transition-colors"
-                  >
-                    Padel Players App
-                  </Link>{" "}
-                  — live on the Apple App Store and Google Play
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#14B8A6]" />
-                <span className="text-gray-600">
-                  <Link
-                    href="/connect/beatframe"
-                    className="font-medium text-[#0B0F12] hover:text-[#0E8C7F] transition-colors"
-                  >
-                    Beat Frame
-                  </Link>{" "}
-                  — creator marketplace, live and operational
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          {/* FUNDING SO FAR */}
-          <h2 className="mt-16 text-2xl font-semibold text-[#0B0F12]">
-            Funding to Date
+      {/* ------------------------------------------------------------- FUNDING */}
+      <section className="border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-3xl px-6 py-24">
+          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+            Funding to date
           </h2>
           <p className="mt-4 leading-relaxed text-gray-600">
-            Wynaxa has been bootstrapped and self-funded to date. We have
-            received &euro;50,000 from our first external investor — validating
-            the model and providing early momentum as we prepare for our next
-            funding round.
+            Wynaxa has been founder-funded. Our first external investor,{" "}
+            <span className="font-medium text-[#0B0F12]">Mike Todd</span>,
+            invested &euro;50,000 into WYNAXA Limited and now sits on the board.
           </p>
-
-          {/* THE RAISE */}
-          <h2 className="mt-16 text-2xl font-semibold text-[#0B0F12]">
-            The Raise
-          </h2>
           <p className="mt-4 leading-relaxed text-gray-600">
-            Our next funding round opens in September 2026. Early access is
-            available now to investors who want to come in ahead of the round.
-            This is an opportunity to join at the ground floor of a multi-venture
-            technology platform with products already live in market.
+            Investment into Wynaxa Sports Tech Ltd is held separately from the
+            parent. Capital raised for the venture stays with the venture.
           </p>
         </div>
       </section>
 
-      {/* CTAs */}
-      <section className="border-t border-gray-100 bg-gray-50">
+      {/* ----------------------------------------------------------- CONTACT */}
+      <section className="bg-white">
         <div className="mx-auto max-w-3xl px-6 py-24">
-          <div className="grid gap-12 md:grid-cols-2">
-            {/* Pitch Deck Download */}
-            <div>
-              <h2 className="text-xl font-semibold text-[#0B0F12]">
-                Download the Pitch Deck
-              </h2>
-              <p className="mt-2 text-sm text-gray-600">
-                Enter your email to receive the Wynaxa investor pitch deck.
-              </p>
-              {submitted ? (
-                <p className="mt-6 text-sm font-medium text-[#0E8C7F]">
-                  Thank you — your download should begin shortly.
-                </p>
-              ) : (
-                <form onSubmit={handlePitchDeckRequest} className="mt-6">
-                  <div className="flex flex-col gap-3 sm:flex-row">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      placeholder="you@example.com"
-                      className="flex-1 rounded-md border border-gray-200 bg-white px-4 py-3 text-sm text-[#0B0F12] placeholder-gray-400 outline-none transition-colors focus:border-[#0E8C7F] focus:ring-1 focus:ring-[#0E8C7F]"
-                    />
-                    <button
-                      type="submit"
-                      className="inline-flex items-center justify-center rounded-md bg-[#0E8C7F] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0a7269]"
-                    >
-                      Download
-                    </button>
-                  </div>
-                  {error && (
-                    <p className="mt-2 text-sm text-red-600">{error}</p>
-                  )}
-                </form>
-              )}
-            </div>
+          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+            Investor enquiries
+          </h2>
+          <p className="mt-4 leading-relaxed text-gray-600">
+            Investor materials are shared on request with qualified investors.
+            Tell us who you are and what you&apos;re interested in, and
+            we&apos;ll come back to you directly.
+          </p>
 
-            {/* Request More Information */}
-            <div>
-              <h2 className="text-xl font-semibold text-[#0B0F12]">
-                Request More Information
-              </h2>
-              <p className="mt-2 text-sm text-gray-600">
-                Have questions or want to discuss the opportunity? Reach out to
-                our investment team directly.
-              </p>
-              <a
-                href="mailto:investors@wynaxa.com"
-                className="mt-6 inline-flex items-center justify-center rounded-md border border-gray-700 bg-[#0B0F12] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1a2028]"
-              >
-                Request More Information
-              </a>
-            </div>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={DECK_REQUEST_MAILTO}
+              className="inline-flex items-center justify-center rounded-md bg-[#0E8C7F] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0a7269]"
+            >
+              Request investor materials
+            </a>
+            <a
+              href={`mailto:${INVESTOR_EMAIL}`}
+              className="inline-flex items-center justify-center rounded-md border border-gray-300 px-6 py-3 text-sm font-medium text-[#0B0F12] transition-colors hover:border-gray-500"
+            >
+              {INVESTOR_EMAIL}
+            </a>
           </div>
+
+          <p className="mt-8 text-xs leading-relaxed text-gray-400">
+            Nothing on this page is an offer or invitation to invest, or a
+            recommendation in respect of any security. Any investment would be
+            made solely on the basis of formal documentation issued to eligible
+            investors.
+          </p>
         </div>
       </section>
     </>
