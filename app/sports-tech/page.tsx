@@ -29,19 +29,19 @@ const TRACTION = {
 
 const PRICING = [
   {
-    tier: "Connect",
+    tier: "Hub Core",
     price: "Free",
     rate: "3.25%",
     detail: "Court booking, player matching, league tools. No monthly fee.",
   },
   {
-    tier: "Manager",
+    tier: "Hub Plus",
     price: "£49/mo",
     rate: "2.75%",
     detail: "Adds venue management, scheduling and coach administration.",
   },
   {
-    tier: "Pro",
+    tier: "Hub Pro",
     price: "£179/mo",
     rate: "2.25%",
     detail: "Multi-site operations, advanced reporting, priority support.",
