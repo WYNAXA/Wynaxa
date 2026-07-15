@@ -28,7 +28,7 @@ const ventureLinks = [
   { href: "/pay", label: "Wynaxa Pay" },
   { href: "/one", label: "Wynaxa One" },
   { href: "/connect", label: "Wynaxa Connect" },
-  { href: "/sports-tech", label: "Sports Tech" },
+  { href: "/sports-tech", label: "Wynaxa Sports Tech" },
   { href: "/eco", label: "Wynaxa Eco" },
   { href: "/foundry", label: "Wynaxa Foundry" },
 ];
