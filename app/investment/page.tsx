@@ -80,20 +80,6 @@ const PIPELINE = [
   },
 ];
 
-const MODEL = [
-  {
-    title: "Build",
-    desc: "We create ventures in-house, using shared engineering, payments and infrastructure so each one launches faster and cheaper than it could alone.",
-  },
-  {
-    title: "Scale",
-    desc: "Proven ventures are capitalised and staffed to grow independently, with their own board and their own balance sheet.",
-  },
-  {
-    title: "Partner",
-    desc: "Through Wynaxa Foundry we co-found with operators who bring the domain, while we bring the platform.",
-  },
-];
 
 export default function InvestmentPage() {
   return (
@@ -167,32 +153,30 @@ export default function InvestmentPage() {
         </div>
       </section>
 
-      {/* -------------------------------------------------------------- MODEL */}
+      {/* MODEL */}
       <section className="border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-3xl px-6 py-24">
-          <h2 className="text-2xl font-semibold text-[#0F1B33]">
-            Why a studio
-          </h2>
-          <p className="mt-4 leading-relaxed text-gray-600">
-            A venture studio is only worth anything to an investor if it makes
-            each venture more likely to succeed. Ours does one specific thing:
-            it lets a company like Sports Tech ship payments, identity,
-            infrastructure and mobile releases without building any of it from
-            scratch. The studio is the cost base. The venture is the business.
-          </p>
-
-          <div className="mt-8 space-y-4">
-            {MODEL.map((pillar) => (
-              <div
-                key={pillar.title}
-                className="rounded-lg border border-gray-200 bg-white p-6"
-              >
-                <h3 className="font-semibold text-[#0F1B33]">{pillar.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                  {pillar.desc}
-                </p>
-              </div>
-            ))}
+        <div className="mx-auto max-w-5xl px-6 py-24">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl font-semibold text-[#0F1B33]">Why a studio</h2>
+            <p className="mt-4 leading-relaxed text-gray-600">A venture studio is only worth anything to an investor if it makes each venture more likely to succeed. Ours owns the hard, shared parts once — so a company like Sports Tech ships without rebuilding them. The studio is the cost base. The venture is the business.</p>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-lg border border-gray-200 bg-white p-6" style={{ borderLeftWidth: "3px", borderLeftColor: "#16A6A6" }}>
+              <h3 className="font-semibold text-[#0F1B33]">Payments</h3>
+              <p className="mt-2 text-sm leading-relaxed text-gray-600">Stripe Connect, marketplace splits and payout logic — built once, reused.</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-white p-6" style={{ borderLeftWidth: "3px", borderLeftColor: "#16A6A6" }}>
+              <h3 className="font-semibold text-[#0F1B33]">Identity &amp; data</h3>
+              <p className="mt-2 text-sm leading-relaxed text-gray-600">Auth, roles and row-level security every venture inherits on day one.</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-white p-6" style={{ borderLeftWidth: "3px", borderLeftColor: "#16A6A6" }}>
+              <h3 className="font-semibold text-[#0F1B33]">Mobile release</h3>
+              <p className="mt-2 text-sm leading-relaxed text-gray-600">A working iOS and Android pipeline. Sports Tech shipped to both stores on it.</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 bg-white p-6" style={{ borderLeftWidth: "3px", borderLeftColor: "#16A6A6" }}>
+              <h3 className="font-semibold text-[#0F1B33]">Engineering</h3>
+              <p className="mt-2 text-sm leading-relaxed text-gray-600">A shared team, so a venture starts with a product org instead of hiring one.</p>
+            </div>
           </div>
         </div>
       </section>
