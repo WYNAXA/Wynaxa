@@ -248,10 +248,17 @@ export default function SportsTechPage() {
             Padel Team Bristol
           </h2>
           <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
-            Seven courts. Terms agreed for the Wynaxa booking platform, with the
-            contract executing this week. A second Padel Team site opens in
-            September 2026 and will run on the same infrastructure.
+            Seven courts. Terms agreed for Wynaxa Hub — our venue booking and
+            management platform, with the contract executing this week. A second
+            Padel Team site opens in September 2026 and will run on the same
+            infrastructure.
           </p>
+          <Link
+            href="/sports-tech/hub"
+            className="mt-6 inline-flex items-center text-sm font-medium text-[#F97316] hover:underline"
+          >
+            Explore Wynaxa Hub &rarr;
+          </Link>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <Milestone
@@ -414,7 +421,7 @@ export default function SportsTechPage() {
               <p className="mt-6 leading-relaxed text-gray-400">
                 Wynaxa Sports Tech Ltd is an Irish-incorporated company
                 (CRO 802571), wholly owned by WYNAXA Limited. It holds the Padel
-                Players App and the venue booking platform, and operates with its
+                Players App and Wynaxa Hub, and operates with its
                 own board and its own capital structure.
               </p>
               <p className="mt-4 leading-relaxed text-gray-400">
