@@ -14,7 +14,7 @@ function WynaxaMark({ className = "" }: { className?: string }) {
       role="img"
       aria-label="Wynaxa"
     >
-      <rect width="512" height="512" rx="112" fill="#0E8C7F" />
+      <rect width="512" height="512" rx="112" fill="#16A6A6" />
       <path
         d="M96 160 L168 360 L232 224 L280 224 L344 360 L416 160"
         fill="none"
@@ -45,7 +45,7 @@ export default function SiteHeader({ navLinks }: { navLinks: NavLink[] }) {
         {/* Logo: mark + wordmark */}
         <Link href="/" className="flex items-center gap-2.5">
           <WynaxaMark className="h-8 w-8" />
-          <span className="text-lg font-bold uppercase tracking-[0.2em] text-[#0B0F12]">
+          <span className="text-lg font-bold uppercase tracking-[0.2em] text-[#0F1B33]">
             Wynaxa
           </span>
         </Link>
@@ -61,8 +61,8 @@ export default function SiteHeader({ navLinks }: { navLinks: NavLink[] }) {
                 aria-current={active ? "page" : undefined}
                 className={
                   active
-                    ? "text-sm font-semibold text-[#0E8C7F]"
-                    : "text-sm text-gray-600 transition-colors hover:text-[#0B0F12]"
+                    ? "text-sm font-semibold text-[#16A6A6]"
+                    : "text-sm text-gray-600 transition-colors hover:text-[#0F1B33]"
                 }
               >
                 {link.label}
@@ -73,13 +73,13 @@ export default function SiteHeader({ navLinks }: { navLinks: NavLink[] }) {
 
         <Link
           href="/investment"
-          className="hidden rounded-md bg-[#0B0F12] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#1a2028] sm:inline-block"
+          className="hidden rounded-md bg-[#0F1B33] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#1a2942] sm:inline-block"
         >
           Investor Access
         </Link>
 
         {/* Mobile menu button (visual only — matches existing behaviour) */}
-        <button className="text-[#0B0F12] md:hidden" aria-label="Open menu">
+        <button className="text-[#0F1B33] md:hidden" aria-label="Open menu">
           <svg
             className="h-6 w-6"
             fill="none"

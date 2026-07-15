@@ -49,7 +49,7 @@ export default function HubPage() {
   return (
     <>
       {/* --------------------------------------------------------------- HERO */}
-      <section className="bg-[#0B0F12]">
+      <section className="bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
           <nav className="mb-8 flex items-center gap-2 text-sm text-gray-500">
             <Link href="/sports-tech" className="hover:text-[#F97316]">
@@ -95,10 +95,10 @@ export default function HubPage() {
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
             <div className="rounded-lg border border-gray-200 bg-gray-50 p-8">
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#0E8C7F]">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#16A6A6]">
                 Demand
               </p>
-              <h2 className="mt-2 text-xl font-semibold text-[#0B0F12]">
+              <h2 className="mt-2 text-xl font-semibold text-[#0F1B33]">
                 Padel Players App
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
@@ -115,7 +115,7 @@ export default function HubPage() {
               <p className="text-xs font-semibold uppercase tracking-wider text-[#F97316]">
                 Supply
               </p>
-              <h2 className="mt-2 text-xl font-semibold text-[#0B0F12]">
+              <h2 className="mt-2 text-xl font-semibold text-[#0F1B33]">
                 Wynaxa Hub
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
@@ -139,7 +139,7 @@ export default function HubPage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-[#F97316]">
             Inside Hub
           </p>
-          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
             Built for the front desk, not a spreadsheet
           </h2>
 
@@ -161,7 +161,7 @@ export default function HubPage() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold tracking-tight text-[#0B0F12]">
+                  <h3 className="text-2xl font-semibold tracking-tight text-[#0F1B33]">
                     {screen.title}
                   </h3>
                   <p className="mt-3 leading-relaxed text-gray-600">
@@ -177,7 +177,7 @@ export default function HubPage() {
       {/* -------------------------------------------------------- BOOKING TYPES */}
       <section className="border-y border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-24">
-          <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+          <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
             One booking flow, every kind of court time
           </h2>
           <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
@@ -192,7 +192,7 @@ export default function HubPage() {
                 key={t.label}
                 className="rounded-lg border border-gray-200 bg-gray-50 p-6"
               >
-                <p className="font-semibold text-[#0B0F12]">{t.label}</p>
+                <p className="font-semibold text-[#0F1B33]">{t.label}</p>
                 <p className="mt-1 text-sm text-gray-500">{t.note}</p>
               </div>
             ))}
@@ -207,7 +207,7 @@ export default function HubPage() {
             <p className="text-sm font-semibold uppercase tracking-wider text-[#F97316]">
               Where Hub goes next
             </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
               A control centre that isn&apos;t only padel
             </h2>
             <p className="mt-4 leading-relaxed text-gray-600">
@@ -222,7 +222,7 @@ export default function HubPage() {
       </section>
 
       {/* ---------------------------------------------------------------- CTA */}
-      <section className="bg-[#0B0F12]">
+      <section className="bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>

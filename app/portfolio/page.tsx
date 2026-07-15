@@ -59,8 +59,8 @@ const ventures = [
 
 const STAGE_STYLES: Record<string, string> = {
   Live: "bg-[#F97316] text-white",
-  "In build": "bg-[#0B0F12] text-white",
-  Operating: "bg-[#0B0F12] text-white",
+  "In build": "bg-[#0F1B33] text-white",
+  Operating: "bg-[#0F1B33] text-white",
   Concept: "bg-gray-100 text-gray-500",
 };
 
@@ -95,7 +95,7 @@ export default function PortfolioPage() {
   return (
     <>
       {/* --------------------------------------------------------------- HERO */}
-      <section className="bg-[#0B0F12]">
+      <section className="bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36">
           <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
             Portfolio
@@ -112,7 +112,7 @@ export default function PortfolioPage() {
       {/* Products first: these are the things that actually exist. */}
       <section className="border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-24">
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">
             Live &amp; in build
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-500">
@@ -130,7 +130,7 @@ export default function PortfolioPage() {
                 <p className="text-xs font-medium uppercase tracking-wider text-gray-400">
                   {p.parent}
                 </p>
-                <h3 className="mt-2 text-xl font-semibold text-[#0B0F12] transition-colors group-hover:text-[#0E8C7F]">
+                <h3 className="mt-2 text-xl font-semibold text-[#0F1B33] transition-colors group-hover:text-[#16A6A6]">
                   {p.name}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-gray-600">
@@ -145,7 +145,7 @@ export default function PortfolioPage() {
       {/* ---------------------------------------------------------- VENTURES */}
       <section className="bg-gray-50">
         <div className="mx-auto max-w-7xl px-6 py-24">
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">Ventures</h2>
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">Ventures</h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-500">
             Each venture is its own company with its own board. Where each one
             actually is:
@@ -182,7 +182,7 @@ export default function PortfolioPage() {
                     {v.stage}
                   </span>
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-[#0B0F12] transition-colors group-hover:text-[#0E8C7F]">
+                <h3 className="mt-4 text-lg font-semibold text-[#0F1B33] transition-colors group-hover:text-[#16A6A6]">
                   {v.name}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-gray-600">

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function ConnectPage() {
   return (
     <>
-      <section className="border-b-2 border-connect bg-[#0B0F12]">
+      <section className="border-b-2 border-connect bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36">
           <p className="text-sm font-semibold uppercase tracking-wider text-connect">
             Wynaxa Connect
@@ -47,14 +47,14 @@ export default function ConnectPage() {
 
           {/* Featured product */}
           <div className="mt-12">
-            <h2 className="text-lg font-semibold text-[#0B0F12]">
+            <h2 className="text-lg font-semibold text-[#0F1B33]">
               Featured Product
             </h2>
             <Link
               href="/connect/beatframe"
               className="group mt-4 block rounded-lg border-l-4 border-connect bg-gray-50 p-6 transition-shadow hover:shadow-lg"
             >
-              <h3 className="text-xl font-semibold text-[#0B0F12] group-hover:text-connect transition-colors">
+              <h3 className="text-xl font-semibold text-[#0F1B33] group-hover:text-connect transition-colors">
                 Beat Frame
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
@@ -69,7 +69,7 @@ export default function ConnectPage() {
 
           <Link
             href="/portfolio"
-            className="mt-10 inline-block text-sm font-medium text-[#0E8C7F] hover:underline"
+            className="mt-10 inline-block text-sm font-medium text-[#16A6A6] hover:underline"
           >
             &larr; Back to Portfolio
           </Link>

@@ -29,7 +29,7 @@ const offices = [
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-[#0B0F12]">
+      <section className="bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36">
           <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
             Contact
@@ -44,7 +44,7 @@ export default function ContactPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-24">
           {/* Offices */}
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">
             Our Offices
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
@@ -59,7 +59,7 @@ export default function ContactPage() {
                   minHeight: "180px",
                 }}
               >
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#0E8C7F]">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#16A6A6]">
                   {office.label}
                 </p>
                 <p className="mt-2 text-lg font-semibold text-white">
@@ -73,23 +73,23 @@ export default function ContactPage() {
           {/* Email contacts */}
           <div className="mt-16 grid gap-8 sm:grid-cols-2">
             <div>
-              <h2 className="text-lg font-semibold text-[#0B0F12]">
+              <h2 className="text-lg font-semibold text-[#0F1B33]">
                 General Enquiries
               </h2>
               <a
                 href="mailto:info@wynaxa.com"
-                className="mt-3 block text-[#0E8C7F] hover:underline"
+                className="mt-3 block text-[#16A6A6] hover:underline"
               >
                 info@wynaxa.com
               </a>
             </div>
             <div>
-              <h2 className="text-lg font-semibold text-[#0B0F12]">
+              <h2 className="text-lg font-semibold text-[#0F1B33]">
                 Investor Relations
               </h2>
               <a
                 href="mailto:investors@wynaxa.com"
-                className="mt-3 block text-[#0E8C7F] hover:underline"
+                className="mt-3 block text-[#16A6A6] hover:underline"
               >
                 investors@wynaxa.com
               </a>
@@ -98,7 +98,7 @@ export default function ContactPage() {
 
           {/* Contact form */}
           <div className="mt-20 mx-auto max-w-2xl">
-            <h2 className="text-2xl font-semibold text-[#0B0F12]">
+            <h2 className="text-2xl font-semibold text-[#0F1B33]">
               Send a Message
             </h2>
             <p className="mt-2 text-sm text-gray-600">
@@ -115,7 +115,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-[#0B0F12]"
+                  className="block text-sm font-medium text-[#0F1B33]"
                 >
                   Name
                 </label>
@@ -124,7 +124,7 @@ export default function ContactPage() {
                   id="name"
                   name="name"
                   required
-                  className="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-3 text-sm text-[#0B0F12] placeholder-gray-400 outline-none transition-colors focus:border-[#0E8C7F] focus:ring-1 focus:ring-[#0E8C7F]"
+                  className="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-3 text-sm text-[#0F1B33] placeholder-gray-400 outline-none transition-colors focus:border-[#16A6A6] focus:ring-1 focus:ring-[#16A6A6]"
                   placeholder="Your name"
                 />
               </div>
@@ -132,7 +132,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-[#0B0F12]"
+                  className="block text-sm font-medium text-[#0F1B33]"
                 >
                   Email
                 </label>
@@ -141,7 +141,7 @@ export default function ContactPage() {
                   id="email"
                   name="email"
                   required
-                  className="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-3 text-sm text-[#0B0F12] placeholder-gray-400 outline-none transition-colors focus:border-[#0E8C7F] focus:ring-1 focus:ring-[#0E8C7F]"
+                  className="mt-2 block w-full rounded-md border border-gray-200 bg-white px-4 py-3 text-sm text-[#0F1B33] placeholder-gray-400 outline-none transition-colors focus:border-[#16A6A6] focus:ring-1 focus:ring-[#16A6A6]"
                   placeholder="you@example.com"
                 />
               </div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-[#0B0F12]"
+                  className="block text-sm font-medium text-[#0F1B33]"
                 >
                   Message
                 </label>
@@ -158,14 +158,14 @@ export default function ContactPage() {
                   name="message"
                   rows={5}
                   required
-                  className="mt-2 block w-full resize-none rounded-md border border-gray-200 bg-white px-4 py-3 text-sm text-[#0B0F12] placeholder-gray-400 outline-none transition-colors focus:border-[#0E8C7F] focus:ring-1 focus:ring-[#0E8C7F]"
+                  className="mt-2 block w-full resize-none rounded-md border border-gray-200 bg-white px-4 py-3 text-sm text-[#0F1B33] placeholder-gray-400 outline-none transition-colors focus:border-[#16A6A6] focus:ring-1 focus:ring-[#16A6A6]"
                   placeholder="How can we help?"
                 />
               </div>
 
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-md bg-[#0E8C7F] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0a7269]"
+                className="inline-flex items-center justify-center rounded-md bg-[#16A6A6] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#128585]"
               >
                 Send Message
               </button>

@@ -17,7 +17,7 @@ const leadership = [
     title: "Founder & CEO",
     location: "UK",
     initials: "CS",
-    accent: "#0E8C7F",
+    accent: "#16A6A6",
     bio: "Former CEO of several successful headhunting agencies, providing global organisations with innovative ways to attract talent, build portfolios and grow profit. A leading voice on innovation in the local ecosystem, with a track record of turning around declining businesses — re-engaging lost customers, capturing international growth and revitalising brand positioning.",
     linkedin: "https://www.linkedin.com/in/christianshanahan/",
   },
@@ -63,7 +63,7 @@ export default function AboutPage() {
   return (
     <>
       {/* --------------------------------------------------------------- HERO */}
-      <section className="bg-[#0B0F12]">
+      <section className="bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36">
           <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
             About Wynaxa
@@ -78,7 +78,7 @@ export default function AboutPage() {
       {/* ----------------------------------------------------------- OUR STORY */}
       <section className="bg-white">
         <div className="mx-auto max-w-3xl px-6 py-24">
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">Our story</h2>
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">Our story</h2>
           <p className="mt-4 leading-relaxed text-gray-600">
             Wynaxa is the parent studio behind a small, focused portfolio of
             technology companies. Rather than spread thin, we build one venture
@@ -104,16 +104,16 @@ export default function AboutPage() {
       {/* ---------------------------------------------------------- STRUCTURE */}
       <section className="border-t border-gray-100 bg-gray-50">
         <div className="mx-auto max-w-3xl px-6 py-16">
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">Structure</h2>
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">Structure</h2>
           <div className="mt-6 space-y-3">
             <div className="rounded-lg border border-gray-200 bg-white p-5">
-              <p className="font-semibold text-[#0B0F12]">WYNAXA Limited</p>
+              <p className="font-semibold text-[#0F1B33]">WYNAXA Limited</p>
               <p className="mt-1 text-sm text-gray-500">
                 Parent venture studio.
               </p>
             </div>
             <div className="ml-6 rounded-lg border border-gray-200 bg-white p-5">
-              <p className="font-semibold text-[#0B0F12]">
+              <p className="font-semibold text-[#0F1B33]">
                 Wynaxa Sports Tech Ltd
               </p>
               <p className="mt-1 text-sm text-gray-500">
@@ -128,7 +128,7 @@ export default function AboutPage() {
       {/* --------------------------------------------------------- LEADERSHIP */}
       <section className="border-t border-gray-100 bg-white">
         <div className="mx-auto max-w-5xl px-6 py-24">
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">
             Leadership &amp; advisors
           </h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -147,10 +147,10 @@ export default function AboutPage() {
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-[#0B0F12]">
+                    <h3 className="text-lg font-semibold text-[#0F1B33]">
                       {person.name}
                     </h3>
-                    <p className="text-sm font-medium text-[#0E8C7F]">
+                    <p className="text-sm font-medium text-[#16A6A6]">
                       {person.title}
                     </p>
                     <p className="text-xs uppercase tracking-wider text-gray-400">
@@ -166,7 +166,7 @@ export default function AboutPage() {
                     href={person.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 inline-block text-sm font-medium text-[#0E8C7F] hover:underline"
+                    className="mt-3 inline-block text-sm font-medium text-[#16A6A6] hover:underline"
                   >
                     LinkedIn &rarr;
                   </a>
@@ -178,13 +178,13 @@ export default function AboutPage() {
           <div className="mt-12 flex flex-wrap gap-4">
             <Link
               href="/sports-tech"
-              className="inline-flex items-center justify-center rounded-md bg-[#0E8C7F] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0a7269]"
+              className="inline-flex items-center justify-center rounded-md bg-[#16A6A6] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#128585]"
             >
               See the live venture
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-md border border-gray-200 px-6 py-3 text-sm font-medium text-[#0B0F12] transition-colors hover:border-gray-300"
+              className="inline-flex items-center justify-center rounded-md border border-gray-200 px-6 py-3 text-sm font-medium text-[#0F1B33] transition-colors hover:border-gray-300"
             >
               Contact us
             </Link>

@@ -54,7 +54,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
 
         {/* Footer */}
-        <footer className="border-t border-gray-100 bg-[#0B0F12] text-gray-400">
+        <footer className="border-t border-gray-100 bg-[#0F1B33] text-gray-400">
           <div className="mx-auto max-w-7xl px-6 py-16">
             <div className="grid gap-12 md:grid-cols-4">
               {/* Brand */}

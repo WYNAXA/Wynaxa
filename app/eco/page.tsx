@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function EcoPage() {
   return (
     <>
-      <section className="border-b-2 border-eco bg-[#0B0F12]">
+      <section className="border-b-2 border-eco bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36">
           <p className="text-sm font-semibold uppercase tracking-wider text-eco">
             Wynaxa Eco
@@ -44,7 +44,7 @@ export default function EcoPage() {
           </p>
           <Link
             href="/portfolio"
-            className="mt-8 inline-block text-sm font-medium text-[#0E8C7F] hover:underline"
+            className="mt-8 inline-block text-sm font-medium text-[#16A6A6] hover:underline"
           >
             &larr; Back to Portfolio
           </Link>

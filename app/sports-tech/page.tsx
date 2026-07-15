@@ -87,7 +87,7 @@ export default function SportsTechPage() {
   return (
     <>
       {/* ---------------------------------------------------------------- HERO */}
-      <section className="border-b-2 border-sports bg-[#0B0F12]">
+      <section className="border-b-2 border-sports bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
           <p className="text-sm font-semibold uppercase tracking-wider text-sports">
             Wynaxa Sports Tech
@@ -183,7 +183,7 @@ export default function SportsTechPage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-sports">
             The Product
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
             Padel Players App
           </h2>
 
@@ -244,7 +244,7 @@ export default function SportsTechPage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-sports">
             First Venue
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
             Padel Team Bristol
           </h2>
           <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
@@ -289,7 +289,7 @@ export default function SportsTechPage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-sports">
             The Model
           </p>
-          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
             We arrive with the players already in the building
           </h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-gray-600">
@@ -306,10 +306,10 @@ export default function SportsTechPage() {
                 className="rounded-lg border border-gray-200 bg-white p-6"
                 style={{ borderTopWidth: "2px", borderTopColor: "#F97316" }}
               >
-                <h3 className="text-lg font-semibold text-[#0B0F12]">
+                <h3 className="text-lg font-semibold text-[#0F1B33]">
                   {p.tier}
                 </h3>
-                <p className="mt-2 text-2xl font-semibold text-[#0B0F12]">
+                <p className="mt-2 text-2xl font-semibold text-[#0F1B33]">
                   {p.price}
                 </p>
                 <p className="mt-1 text-sm font-medium text-sports">
@@ -336,7 +336,7 @@ export default function SportsTechPage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-sports">
             Beyond Padel
           </p>
-          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
             One engine. Every sport that needs four people and a court.
           </h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-gray-600">
@@ -356,7 +356,7 @@ export default function SportsTechPage() {
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-[#0B0F12]">
+                  <h3 className="text-lg font-semibold text-[#0F1B33]">
                     {r.sport}
                   </h3>
                   <span
@@ -384,7 +384,7 @@ export default function SportsTechPage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-sports">
             Team &amp; Board
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
             Who is building this
           </h2>
 
@@ -397,7 +397,7 @@ export default function SportsTechPage() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
                   {person.kind}
                 </p>
-                <h3 className="mt-2 text-lg font-semibold text-[#0B0F12]">
+                <h3 className="mt-2 text-lg font-semibold text-[#0F1B33]">
                   {person.name}
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">{person.role}</p>
@@ -408,7 +408,7 @@ export default function SportsTechPage() {
       </section>
 
       {/* ------------------------------------------------------------- ENTITY */}
-      <section className="bg-[#0B0F12]">
+      <section className="bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
@@ -464,10 +464,10 @@ function Stat({
 }) {
   return (
     <div className="bg-white p-8">
-      <p className="text-4xl font-semibold tracking-tight text-[#0B0F12] sm:text-5xl">
+      <p className="text-4xl font-semibold tracking-tight text-[#0F1B33] sm:text-5xl">
         {value}
       </p>
-      <p className="mt-2 text-sm font-semibold text-[#0B0F12]">{label}</p>
+      <p className="mt-2 text-sm font-semibold text-[#0F1B33]">{label}</p>
       <p className="mt-1 text-sm leading-relaxed text-gray-500">{note}</p>
     </div>
   );
@@ -496,7 +496,7 @@ function Milestone({
           {date}
         </p>
       </div>
-      <h3 className="mt-3 font-semibold text-[#0B0F12]">{title}</h3>
+      <h3 className="mt-3 font-semibold text-[#0F1B33]">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-gray-600">{body}</p>
     </div>
   );

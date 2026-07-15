@@ -70,8 +70,8 @@ const VENTURES = [
 
 const STAGE_STYLES: Record<string, string> = {
   Live: "bg-[#F97316] text-white",
-  "In build": "bg-[#0B0F12] text-white",
-  Operating: "bg-[#0B0F12] text-white",
+  "In build": "bg-[#0F1B33] text-white",
+  Operating: "bg-[#0F1B33] text-white",
   Concept: "bg-gray-100 text-gray-500",
 };
 
@@ -98,16 +98,16 @@ export default function Home() {
   return (
     <>
       {/* --------------------------------------------------------------- HERO */}
-      <section className="relative overflow-hidden bg-[#0B0F12]">
+      <section className="relative overflow-hidden bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:py-36">
           <div className="grid gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#0E8C7F]">
+              <p className="text-sm font-semibold uppercase tracking-wider text-[#16A6A6]">
                 Venture Studio
               </p>
               <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
                 A venture studio is a promise.
-                <span className="block text-[#0E8C7F]">
+                <span className="block text-[#16A6A6]">
                   Until something ships.
                 </span>
               </h1>
@@ -121,7 +121,7 @@ export default function Home() {
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/sports-tech"
-                  className="inline-flex items-center justify-center rounded-md bg-[#0E8C7F] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0a7269]"
+                  className="inline-flex items-center justify-center rounded-md bg-[#16A6A6] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#128585]"
                 >
                   See what shipped
                 </Link>
@@ -155,7 +155,7 @@ export default function Home() {
           <div className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-lg bg-gray-200 lg:grid-cols-4">
             {TRACTION.map((stat) => (
               <div key={stat.label} className="bg-white p-6 sm:p-8">
-                <p className="text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+                <p className="text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
                   {stat.value}
                 </p>
                 <p className="mt-1 text-sm leading-snug text-gray-500">
@@ -183,10 +183,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="grid gap-16 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#0E8C7F]">
+              <p className="text-sm font-semibold uppercase tracking-wider text-[#16A6A6]">
                 How it works
               </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
                 A studio is only worth having if the ventures move faster
               </h2>
               <p className="mt-6 leading-relaxed text-gray-600">
@@ -204,7 +204,7 @@ export default function Home() {
               </p>
               <Link
                 href="/about"
-                className="mt-6 inline-flex items-center text-sm font-medium text-[#0E8C7F] hover:underline"
+                className="mt-6 inline-flex items-center text-sm font-medium text-[#16A6A6] hover:underline"
               >
                 About Wynaxa &rarr;
               </Link>
@@ -216,7 +216,7 @@ export default function Home() {
                   key={cap.title}
                   className="rounded-lg border border-gray-200 bg-white p-6"
                 >
-                  <h3 className="font-semibold text-[#0B0F12]">{cap.title}</h3>
+                  <h3 className="font-semibold text-[#0F1B33]">{cap.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-gray-600">
                     {cap.body}
                   </p>
@@ -230,10 +230,10 @@ export default function Home() {
       {/* ----------------------------------------------------------- VENTURES */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-24">
-          <p className="text-sm font-semibold uppercase tracking-wider text-[#0E8C7F]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[#16A6A6]">
             Ventures
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0B0F12] sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
             Where each one actually is
           </h2>
           <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
@@ -257,7 +257,7 @@ export default function Home() {
                 }
               >
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-semibold text-[#0B0F12] transition-colors group-hover:text-[#0E8C7F]">
+                  <h3 className="font-semibold text-[#0F1B33] transition-colors group-hover:text-[#16A6A6]">
                     {v.name}
                   </h3>
                   <span
@@ -285,7 +285,7 @@ export default function Home() {
       </section>
 
       {/* ---------------------------------------------------------------- CTA */}
-      <section className="bg-[#0B0F12]">
+      <section className="bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
@@ -301,7 +301,7 @@ export default function Home() {
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <Link
                 href="/investment"
-                className="inline-flex items-center justify-center rounded-md bg-[#0E8C7F] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0a7269]"
+                className="inline-flex items-center justify-center rounded-md bg-[#16A6A6] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#128585]"
               >
                 Investor access
               </Link>

@@ -14,7 +14,7 @@ export default function BeatFramePage() {
   return (
     <>
       <section
-        className="relative border-b-2 border-connect bg-[#0B0F12]"
+        className="relative border-b-2 border-connect bg-[#0F1B33]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(/beatframe-hero.jpg)",
@@ -46,7 +46,7 @@ export default function BeatFramePage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-3xl px-6 py-24">
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">
             The Platform
           </h2>
           <p className="mt-4 leading-relaxed text-gray-600">
@@ -80,7 +80,7 @@ export default function BeatFramePage() {
             </a>
             <Link
               href="/portfolio"
-              className="text-sm font-medium text-[#0E8C7F] hover:underline"
+              className="text-sm font-medium text-[#16A6A6] hover:underline"
             >
               &larr; Back to Portfolio
             </Link>

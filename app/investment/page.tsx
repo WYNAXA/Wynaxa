@@ -99,9 +99,9 @@ export default function InvestmentPage() {
   return (
     <>
       {/* --------------------------------------------------------------- HERO */}
-      <section className="bg-[#0B0F12]">
+      <section className="bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36">
-          <p className="text-sm font-semibold uppercase tracking-wider text-[#0E8C7F]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[#16A6A6]">
             Investment
           </p>
           <h1 className="mt-3 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
@@ -122,7 +122,7 @@ export default function InvestmentPage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-[#F97316]">
             Lead Venture
           </p>
-          <h2 className="mt-3 text-2xl font-semibold text-[#0B0F12]">
+          <h2 className="mt-3 text-2xl font-semibold text-[#0F1B33]">
             Wynaxa Sports Tech
           </h2>
           <p className="mt-4 leading-relaxed text-gray-600">
@@ -134,7 +134,7 @@ export default function InvestmentPage() {
           <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-lg bg-gray-200 sm:grid-cols-4">
             {SPORTS_TECH_TRACTION.map((stat) => (
               <div key={stat.label} className="bg-white p-6">
-                <p className="text-3xl font-semibold tracking-tight text-[#0B0F12]">
+                <p className="text-3xl font-semibold tracking-tight text-[#0F1B33]">
                   {stat.value}
                 </p>
                 <p className="mt-1 text-xs leading-snug text-gray-500">
@@ -170,7 +170,7 @@ export default function InvestmentPage() {
       {/* -------------------------------------------------------------- MODEL */}
       <section className="border-b border-gray-100 bg-gray-50">
         <div className="mx-auto max-w-3xl px-6 py-24">
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">
             Why a studio
           </h2>
           <p className="mt-4 leading-relaxed text-gray-600">
@@ -187,7 +187,7 @@ export default function InvestmentPage() {
                 key={pillar.title}
                 className="rounded-lg border border-gray-200 bg-white p-6"
               >
-                <h3 className="font-semibold text-[#0B0F12]">{pillar.title}</h3>
+                <h3 className="font-semibold text-[#0F1B33]">{pillar.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-gray-600">
                   {pillar.desc}
                 </p>
@@ -200,7 +200,7 @@ export default function InvestmentPage() {
       {/* ----------------------------------------------------------- PIPELINE */}
       <section className="border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-3xl px-6 py-24">
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">
             The rest of the studio
           </h2>
           <p className="mt-4 leading-relaxed text-gray-600">
@@ -224,7 +224,7 @@ export default function InvestmentPage() {
                 }
               >
                 <div>
-                  <h3 className="text-sm font-semibold text-[#0B0F12] transition-colors group-hover:text-[#0E8C7F]">
+                  <h3 className="text-sm font-semibold text-[#0F1B33] transition-colors group-hover:text-[#16A6A6]">
                     {v.name}
                   </h3>
                   <p className="mt-1 text-xs text-gray-500">{v.description}</p>
@@ -241,12 +241,12 @@ export default function InvestmentPage() {
       {/* ------------------------------------------------------------- FUNDING */}
       <section className="border-b border-gray-100 bg-gray-50">
         <div className="mx-auto max-w-3xl px-6 py-24">
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">
             Funding to date
           </h2>
           <p className="mt-4 leading-relaxed text-gray-600">
             Wynaxa has been founder-funded. Our first external investor,{" "}
-            <span className="font-medium text-[#0B0F12]">Mike Todd</span>,
+            <span className="font-medium text-[#0F1B33]">Mike Todd</span>,
             invested &euro;50,000 into WYNAXA Limited and now sits on the board.
           </p>
           <p className="mt-4 leading-relaxed text-gray-600">
@@ -259,7 +259,7 @@ export default function InvestmentPage() {
       {/* ----------------------------------------------------------- CONTACT */}
       <section className="bg-white">
         <div className="mx-auto max-w-3xl px-6 py-24">
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">
             Investor enquiries
           </h2>
           <p className="mt-4 leading-relaxed text-gray-600">
@@ -271,13 +271,13 @@ export default function InvestmentPage() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href={DECK_REQUEST_MAILTO}
-              className="inline-flex items-center justify-center rounded-md bg-[#0E8C7F] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0a7269]"
+              className="inline-flex items-center justify-center rounded-md bg-[#16A6A6] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#128585]"
             >
               Request investor materials
             </a>
             <a
               href={`mailto:${INVESTOR_EMAIL}`}
-              className="inline-flex items-center justify-center rounded-md border border-gray-300 px-6 py-3 text-sm font-medium text-[#0B0F12] transition-colors hover:border-gray-500"
+              className="inline-flex items-center justify-center rounded-md border border-gray-300 px-6 py-3 text-sm font-medium text-[#0F1B33] transition-colors hover:border-gray-500"
             >
               {INVESTOR_EMAIL}
             </a>

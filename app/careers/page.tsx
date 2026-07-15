@@ -45,7 +45,7 @@ const perks = [
 export default function CareersPage() {
   return (
     <>
-      <section className="bg-[#0B0F12]">
+      <section className="bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36">
           <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
             Build the Future with Us
@@ -60,7 +60,7 @@ export default function CareersPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-24">
           {/* Open positions */}
-          <h2 className="text-2xl font-semibold text-[#0B0F12]">
+          <h2 className="text-2xl font-semibold text-[#0F1B33]">
             Open Positions
           </h2>
           <div className="mt-8 grid gap-4">
@@ -70,7 +70,7 @@ export default function CareersPage() {
                 className="flex flex-col gap-4 rounded-lg border border-gray-200 p-6 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div>
-                  <h3 className="text-lg font-semibold text-[#0B0F12]">
+                  <h3 className="text-lg font-semibold text-[#0F1B33]">
                     {role.title}
                   </h3>
                   <div className="mt-2 flex flex-wrap gap-3 text-sm text-gray-500">
@@ -83,7 +83,7 @@ export default function CareersPage() {
                 </div>
                 <a
                   href={`mailto:careers@wynaxa.com?subject=Application: ${encodeURIComponent(role.title)}`}
-                  className="inline-flex items-center justify-center rounded-md bg-[#0B0F12] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#1a2028] sm:w-auto"
+                  className="inline-flex items-center justify-center rounded-md bg-[#0F1B33] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#1a2942] sm:w-auto"
                 >
                   View / Apply
                 </a>
@@ -93,7 +93,7 @@ export default function CareersPage() {
 
           {/* Why join */}
           <div className="mt-20">
-            <h2 className="text-2xl font-semibold text-[#0B0F12]">
+            <h2 className="text-2xl font-semibold text-[#0F1B33]">
               Why Join Wynaxa?
             </h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -102,7 +102,7 @@ export default function CareersPage() {
                   key={perk}
                   className="flex items-start gap-3 rounded-lg border border-gray-100 p-5"
                 >
-                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0E8C7F]" />
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#16A6A6]" />
                   <span className="text-sm text-gray-700">{perk}</span>
                 </div>
               ))}
@@ -111,7 +111,7 @@ export default function CareersPage() {
 
           {/* Open application CTA */}
           <div className="mt-20 rounded-lg bg-gray-50 p-8 text-center sm:p-12">
-            <h2 className="text-xl font-semibold text-[#0B0F12]">
+            <h2 className="text-xl font-semibold text-[#0F1B33]">
               Don&apos;t see a perfect fit?
             </h2>
             <p className="mt-2 text-gray-600">
@@ -120,7 +120,7 @@ export default function CareersPage() {
             </p>
             <a
               href="mailto:careers@wynaxa.com?subject=Open Application"
-              className="mt-6 inline-flex items-center justify-center rounded-md bg-[#0E8C7F] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0a7269]"
+              className="mt-6 inline-flex items-center justify-center rounded-md bg-[#16A6A6] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#128585]"
             >
               Send Your CV
             </a>
