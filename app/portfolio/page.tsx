@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import AmbientVideo from "./components/AmbientVideo";
 
 export const metadata: Metadata = {
   title: "Portfolio — Wynaxa",
@@ -94,17 +95,15 @@ const products = [
 export default function PortfolioPage() {
   return (
     <>
-      {/* --------------------------------------------------------------- HERO */}
-      <section className="bg-[#0F1B33]">
-        <div className="mx-auto max-w-7xl px-6 py-28 sm:py-36">
-          <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-            Portfolio
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-400">
-            One venture live in market, one in build, and the studio behind
-            them. We&apos;re transparent about stage — the concepts are held for
-            when the platform and the team can carry them properly.
-          </p>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-[#0F1B33]">
+        <div className="absolute inset-0">
+          <AmbientVideo src="/wynaxa-mesh-loop.mp4" poster="/wynaxa-mesh-poster.jpg" alt="" />
+          <div className="absolute inset-0 bg-[#0F1B33]/80" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-6 py-28 sm:py-36">
+          <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">Portfolio</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300">One venture live in market, one in build, and the studio behind them. We&apos;re transparent about stage — the concepts are held for when the platform and the team can carry them properly.</p>
         </div>
       </section>
 
