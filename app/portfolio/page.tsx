@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import AmbientVideo from "./components/AmbientVideo";
+import AmbientVideo from "../components/AmbientVideo";
 
 export const metadata: Metadata = {
   title: "Portfolio — Wynaxa",
