@@ -9,6 +9,30 @@ export const metadata: Metadata = {
 };
 
 const HUB_URL = "https://hub.wynaxa.com";
+const ONBOARD_URL = `${HUB_URL}/onboarding`;
+
+/* Owner-facing pricing. Subscriptions are priced for the UK & Europe and
+   adjusted for local markets; the transaction rate scales with local prices. */
+const PRICING = [
+  {
+    tier: "Hub Core",
+    price: "Free",
+    rate: "3.25%",
+    detail: "Court booking, player matching and league tools. No monthly fee.",
+  },
+  {
+    tier: "Hub Plus",
+    price: "£49/mo",
+    rate: "2.75%",
+    detail: "Adds venue management, scheduling and coach administration.",
+  },
+  {
+    tier: "Hub Pro",
+    price: "£179/mo",
+    rate: "2.25%",
+    detail: "Multi-site operations, advanced reporting and priority support.",
+  },
+];
 
 /* The four screens that carry the argument. Files live in /public. */
 const SCREENS = [
@@ -73,20 +97,24 @@ export default function HubPage() {
 
           <div className="mt-10 flex flex-wrap gap-4">
             <a
-              href={HUB_URL}
+              href={ONBOARD_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md bg-[#F97316] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
             >
-              Visit hub.wynaxa.com
+              Claim your venue &rarr;
             </a>
-            <Link
-              href="/sports-tech"
+            <a
+              href="#pricing"
               className="inline-flex items-center justify-center rounded-md border border-gray-700 px-6 py-3 text-sm font-medium text-gray-300 transition-colors hover:border-gray-500 hover:text-white"
             >
-              Back to Sports Tech
-            </Link>
+              See pricing
+            </a>
           </div>
+          <p className="mt-4 text-sm text-gray-500">
+            Already listed in the Padel Players App? Claiming takes about five
+            minutes. Not listed yet? You can add your venue too.
+          </p>
         </div>
       </section>
 
@@ -221,35 +249,106 @@ export default function HubPage() {
         </div>
       </section>
 
+      {/* ------------------------------------------------------------ PRICING */}
+      <section id="pricing" className="border-y border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[#F97316]">
+            Pricing
+          </p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
+            Free to start. You only pay when you get paid.
+          </h2>
+          <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
+            Hub Core is free — no monthly fee. You pay a small percentage only on
+            bookings taken and paid through Hub. Upgrade when you want management
+            and multi-site tools.
+          </p>
+
+          {/* Founder offer */}
+          <div className="mt-10 rounded-lg border border-[#F97316]/30 bg-[#F97316]/5 p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#F97316]">
+              Founding venues
+            </p>
+            <h3 className="mt-2 text-xl font-semibold text-[#0F1B33]">
+              The first 100 venues get Hub Core free for life
+            </h3>
+            <p className="mt-2 max-w-2xl leading-relaxed text-gray-600">
+              Claim now and lock in Hub Core free for life at a flat{" "}
+              <strong>2.25%</strong> transaction rate — our lowest. The next 50
+              venues get it free at <strong>2.5%</strong>. No lock-in, cancel
+              anytime.
+            </p>
+          </div>
+
+          {/* Tiers */}
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {PRICING.map((p) => (
+              <div
+                key={p.tier}
+                className="rounded-lg border border-gray-200 bg-gray-50 p-6"
+              >
+                <p className="font-semibold text-[#0F1B33]">{p.tier}</p>
+                <p className="mt-2 text-2xl font-semibold text-[#0F1B33]">
+                  {p.price}
+                </p>
+                <p className="mt-1 text-sm font-medium text-[#16A6A6]">
+                  {p.rate} per booking
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                  {p.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-sm text-gray-500">
+            Subscriptions are priced for the UK &amp; Europe and adjusted for
+            local markets.
+          </p>
+
+          <div className="mt-10">
+            <a
+              href={ONBOARD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-md bg-[#F97316] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            >
+              Claim your venue &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ---------------------------------------------------------------- CTA */}
       <section className="bg-[#0F1B33]">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                See Hub for yourself
+                Claim your venue on Hub
               </h2>
               <p className="mt-4 max-w-xl leading-relaxed text-gray-400">
-                Hub is live at hub.wynaxa.com. Venues can claim their space, and
-                players get matched to the courts near them through the Padel
-                Players App.
+                Hub is live at hub.wynaxa.com. Find your venue, claim it, and
+                start reaching the players already looking to play near you
+                through the Padel Players App.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <a
-                href={HUB_URL}
+                href={ONBOARD_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-md bg-[#F97316] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
               >
-                Visit hub.wynaxa.com
+                Claim your venue &rarr;
               </a>
-              <Link
-                href="/investment"
+              <a
+                href={HUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-md border border-gray-700 px-6 py-3 text-sm font-medium text-gray-300 transition-colors hover:border-gray-500 hover:text-white"
               >
-                Investor access
-              </Link>
+                Visit hub.wynaxa.com
+              </a>
             </div>
           </div>
         </div>
