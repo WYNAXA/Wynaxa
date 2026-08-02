@@ -69,6 +69,26 @@ const BOOKING_TYPES = [
   { label: "Block-out", note: "Court unavailable" },
 ];
 
+/* How an owner gets from "is my venue on here?" to running it. Mirrors the
+   real onboarding flow: search → claim/verify → manage. */
+const CLAIM_STEPS = [
+  {
+    step: "01",
+    title: "Find your venue",
+    body: "We've mapped padel venues across Europe, so yours is probably already listed. Search hub.wynaxa.com by name or town to find it.",
+  },
+  {
+    step: "02",
+    title: "Prove it's yours",
+    body: "Claiming takes about five minutes. Confirm ownership from the venue's contact email and you're verified — no paperwork, no waiting on a sales call.",
+  },
+  {
+    step: "03",
+    title: "Take control",
+    body: "Set your courts, opening hours, pricing and photos, and start taking bookings from the players already looking to play near you.",
+  },
+];
+
 export default function HubPage() {
   return (
     <>
@@ -228,8 +248,56 @@ export default function HubPage() {
         </div>
       </section>
 
-      {/* ------------------------------------------------------------ ROADMAP */}
+      {/* -------------------------------------------------------- HOW TO CLAIM */}
       <section className="bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[#F97316]">
+            How claiming works
+          </p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
+            From &ldquo;is my venue on here?&rdquo; to running it — in an afternoon
+          </h2>
+
+          <div className="mt-14 grid gap-10 md:grid-cols-3">
+            {CLAIM_STEPS.map((s) => (
+              <div key={s.step}>
+                <p className="text-4xl font-semibold tracking-tight text-[#F97316]">
+                  {s.step}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold tracking-tight text-[#0F1B33]">
+                  {s.title}
+                </h3>
+                <p className="mt-2 leading-relaxed text-gray-600">{s.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-14 rounded-lg border border-gray-200 bg-white p-6 sm:p-8">
+            <h3 className="text-lg font-semibold text-[#0F1B33]">
+              Not listed yet?
+            </h3>
+            <p className="mt-2 max-w-3xl leading-relaxed text-gray-600">
+              Add your venue in the same flow. If you enter the venue&apos;s
+              contact email, we&apos;ll send the rightful owner an invitation to
+              confirm ownership — so a venue is only ever managed by the people
+              who run it.
+            </p>
+            <div className="mt-6">
+              <a
+                href={ONBOARD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md bg-[#F97316] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+              >
+                Find or add your venue &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------ ROADMAP */}
+      <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-wider text-[#F97316]">
