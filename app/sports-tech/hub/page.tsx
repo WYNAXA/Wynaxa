@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import ClaimVenueSearch from "@/app/components/ClaimVenueSearch";
 
 export const metadata: Metadata = {
   title: "Wynaxa Hub — the venue control centre",
@@ -272,7 +273,12 @@ export default function HubPage() {
             ))}
           </div>
 
-          <div className="mt-14 rounded-lg border border-gray-200 bg-white p-6 sm:p-8">
+          {/* Live claim search — find your venue and claim it right here. */}
+          <div className="mt-14">
+            <ClaimVenueSearch />
+          </div>
+
+          <div className="mt-6 rounded-lg border border-gray-200 bg-white p-6 sm:p-8">
             <h3 className="text-lg font-semibold text-[#0F1B33]">
               Not listed yet?
             </h3>
