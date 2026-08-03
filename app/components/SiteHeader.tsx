@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 type NavLink = { href: string; label: string };
 
@@ -38,6 +39,10 @@ function isActive(pathname: string, href: string) {
 
 export default function SiteHeader({ navLinks }: { navLinks: NavLink[] }) {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  // Close the mobile menu whenever the route changes.
+  useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur-md">
@@ -78,23 +83,53 @@ export default function SiteHeader({ navLinks }: { navLinks: NavLink[] }) {
           Investor Access
         </Link>
 
-        {/* Mobile menu button (visual only — matches existing behaviour) */}
-        <button className="text-[#0B0F12] md:hidden" aria-label="Open menu">
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
+        {/* Mobile menu button */}
+        <button
+          className="text-[#0B0F12] md:hidden"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            {open ? (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            )}
           </svg>
         </button>
       </div>
+
+      {/* Mobile menu panel */}
+      {open && (
+        <nav className="border-t border-gray-100 bg-white px-6 py-4 md:hidden">
+          <div className="flex flex-col gap-1">
+            {navLinks.map((link) => {
+              const active = isActive(pathname, link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={
+                    active
+                      ? "rounded-md px-3 py-2.5 text-sm font-semibold text-[#0E8C7F]"
+                      : "rounded-md px-3 py-2.5 text-sm text-gray-700 transition-colors hover:bg-gray-50"
+                  }
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/investment"
+              className="mt-2 rounded-md bg-[#0B0F12] px-3 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-[#1a2028]"
+            >
+              Investor Access
+            </Link>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

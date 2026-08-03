@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/sports-tech/hub", label: "For venues" },
   { href: "/ventures", label: "Ventures" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/investment", label: "Investment" },
