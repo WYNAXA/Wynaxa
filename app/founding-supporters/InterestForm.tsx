@@ -9,13 +9,13 @@ const interestOptions = [
 ] as const;
 
 const amountOptions = [
-  "£100",
-  "£250",
-  "£500",
-  "£1,000",
-  "£2,500",
-  "£5,000",
-  "£10,000",
+  "€100",
+  "€250",
+  "€500",
+  "€1,000",
+  "€2,500",
+  "€5,000",
+  "€10,000",
   "Other",
 ] as const;
 
@@ -44,7 +44,7 @@ function validate(data: FormData): FormErrors {
     if (!data.customAmount.trim()) {
       errors.customAmount = "Enter an amount.";
     } else if (Number(data.customAmount) < 100) {
-      errors.customAmount = "Minimum amount is £100.";
+      errors.customAmount = "Minimum amount is €100.";
     }
   }
   return errors;
@@ -259,7 +259,7 @@ export default function InterestForm() {
           <span className="text-gray-400 font-normal">(optional)</span>
         </legend>
         <p className="mt-1 text-sm text-gray-500">
-          Anything from &pound;100 upwards. This is indicative only — nothing is
+          Anything from &euro;100 upwards. This is indicative only — nothing is
           committed.
         </p>
         <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -287,7 +287,7 @@ export default function InterestForm() {
               htmlFor="customAmount"
               className="block text-sm font-medium text-foreground"
             >
-              Amount you have in mind (&pound;)
+              Amount you have in mind (&euro;)
             </label>
             <input
               id="customAmount"

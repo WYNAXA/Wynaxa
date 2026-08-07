@@ -13,8 +13,6 @@ export const RAISE = {
   supporters: 4,
 };
 
-export const FX_GBP_TO_EUR = 1.16;
-
 export const metadata: Metadata = {
   title: "Founding Supporters — Wynaxa Sports Tech",
   description:
@@ -86,9 +84,9 @@ const screenshotCaptions = [
   "Rankings — live ELO leaderboard across your group",
 ] as const;
 
-function parseAmountGbp(raw: unknown): number | null {
+function parseAmountEur(raw: unknown): number | null {
   if (typeof raw !== "string" || !raw.trim()) return null;
-  const cleaned = raw.replace(/[£,]/g, "").trim();
+  const cleaned = raw.replace(/[€£,]/g, "").trim();
   const num = Number(cleaned);
   return Number.isFinite(num) && num > 0 ? num : null;
 }
@@ -111,19 +109,19 @@ async function getInterestData(): Promise<{
       return { interestEur: 0, interestCount: 0 };
     }
 
-    let totalGbp = 0;
+    let totalEur = 0;
     let count = 0;
 
     for (const row of data ?? []) {
-      const gbp = parseAmountGbp(row.amount);
-      if (gbp !== null) {
-        totalGbp += gbp;
+      const eur = parseAmountEur(row.amount);
+      if (eur !== null) {
+        totalEur += eur;
         count++;
       }
     }
 
     return {
-      interestEur: Math.round(totalGbp * FX_GBP_TO_EUR),
+      interestEur: totalEur,
       interestCount: count,
     };
   } catch (err) {
@@ -415,9 +413,9 @@ export default async function FoundingSupportersPage() {
               and early backers.
             </p>
             <p>
-              Amounts range from &pound;100 to &pound;10,000. Tell us if
-              you&rsquo;re in and roughly what you&rsquo;re thinking — it helps
-              us understand what&rsquo;s possible before Tuesday.
+              Amounts start at &euro;100. Tell us if you&rsquo;re in and
+              roughly what you&rsquo;re thinking — it helps us understand
+              what&rsquo;s possible before Tuesday.
             </p>
             <p>
               We&rsquo;re meeting Enterprise Ireland on Tuesday 11th August

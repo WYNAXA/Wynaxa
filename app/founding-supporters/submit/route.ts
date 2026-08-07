@@ -10,13 +10,13 @@ const VALID_INTERESTED = [
 ] as const;
 
 const VALID_AMOUNT_BANDS = [
-  "£100",
-  "£250",
-  "£500",
-  "£1,000",
-  "£2,500",
-  "£5,000",
-  "£10,000",
+  "€100",
+  "€250",
+  "€500",
+  "€1,000",
+  "€2,500",
+  "€5,000",
+  "€10,000",
 ] as const;
 
 function isValidAmount(value: string): boolean {
@@ -103,19 +103,19 @@ export async function POST(request: Request) {
       from: "Wynaxa <notifications@padelplayersapp.com>",
       to: process.env.NOTIFY_EMAIL_TO!,
       replyTo: email,
-      subject: `Founding Supporter interest — ${name}${amount ? ` — £${amount}` : ""}`,
+      subject: `Founding Supporter interest — ${name}${amount ? ` — €${amount}` : ""}`,
       html: `
 <div style="font-family: system-ui, sans-serif; max-width: 600px;">
   <p style="font-size: 20px; font-weight: 600; margin: 0 0 4px;">
     ${escapeHtml(interested)}
   </p>
-  ${amount ? `<p style="font-size: 20px; font-weight: 600; color: #0E8C7F; margin: 0 0 24px;">£${escapeHtml(amount)}</p>` : '<p style="margin: 0 0 24px; color: #999;">No amount specified</p>'}
+  ${amount ? `<p style="font-size: 20px; font-weight: 600; color: #0E8C7F; margin: 0 0 24px;">€${escapeHtml(amount)}</p>` : '<p style="margin: 0 0 24px; color: #999;">No amount specified</p>'}
   <table style="border-collapse: collapse; width: 100%;">
     <tr><td style="padding: 8px 12px; border-top: 1px solid #eee; color: #666;">Name</td><td style="padding: 8px 12px; border-top: 1px solid #eee;">${escapeHtml(name)}</td></tr>
     <tr><td style="padding: 8px 12px; border-top: 1px solid #eee; color: #666;">Email</td><td style="padding: 8px 12px; border-top: 1px solid #eee;"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
     <tr><td style="padding: 8px 12px; border-top: 1px solid #eee; color: #666;">Phone</td><td style="padding: 8px 12px; border-top: 1px solid #eee;">${phone ? escapeHtml(phone) : "—"}</td></tr>
     <tr><td style="padding: 8px 12px; border-top: 1px solid #eee; color: #666;">Interested</td><td style="padding: 8px 12px; border-top: 1px solid #eee;">${escapeHtml(interested)}</td></tr>
-    <tr><td style="padding: 8px 12px; border-top: 1px solid #eee; color: #666;">Amount</td><td style="padding: 8px 12px; border-top: 1px solid #eee;">${amount ? "£" + escapeHtml(amount) : "—"}</td></tr>
+    <tr><td style="padding: 8px 12px; border-top: 1px solid #eee; color: #666;">Amount</td><td style="padding: 8px 12px; border-top: 1px solid #eee;">${amount ? "€" + escapeHtml(amount) : "—"}</td></tr>
     <tr><td style="padding: 8px 12px; border-top: 1px solid #eee; color: #666;">Questions</td><td style="padding: 8px 12px; border-top: 1px solid #eee;">${questions ? escapeHtml(questions) : "—"}</td></tr>
     <tr><td style="padding: 8px 12px; border-top: 1px solid #eee; border-bottom: 1px solid #eee; color: #666;">Submitted</td><td style="padding: 8px 12px; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">${timestamp}</td></tr>
   </table>
