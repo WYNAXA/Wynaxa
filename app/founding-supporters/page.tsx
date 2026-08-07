@@ -13,15 +13,64 @@ export const metadata: Metadata = {
   },
 };
 
-const features = [
-  "Player groups",
-  "Match organisation",
-  "Polls",
-  "Rankings and ELO",
-  "Leagues",
-  "Achievements and jerseys",
-  "Venue connections",
-  "Booking and payments",
+const featureClusters = [
+  {
+    label: "Organise",
+    features: [
+      {
+        name: "Player groups",
+        desc: "Create a group, invite your regulars, and manage who plays where — no more spreadsheets or message threads.",
+      },
+      {
+        name: "Match organisation",
+        desc: "Set a date, a court and a level. The app handles availability, confirmations and reserves.",
+      },
+      {
+        name: "Polls",
+        desc: "Ask the group a question and get an answer — who's free Thursday, which court, indoor or outdoor.",
+      },
+    ],
+  },
+  {
+    label: "Compete",
+    features: [
+      {
+        name: "Rankings and ELO",
+        desc: "Every match updates a live leaderboard. Players see where they stand and who they should be playing.",
+      },
+      {
+        name: "Leagues",
+        desc: "Run a proper league inside your group — fixtures, results, tables — without any admin overhead.",
+      },
+      {
+        name: "Achievements and jerseys",
+        desc: "Players unlock milestones and earn digital jerseys as they play. It keeps people coming back.",
+      },
+    ],
+  },
+  {
+    label: "Connect",
+    features: [
+      {
+        name: "Venue connections",
+        desc: "Players discover nearby venues. Venues reach the players already organising games around them.",
+      },
+      {
+        name: "Booking and payments",
+        desc: "Book a court and split the cost inside the app, no separate payment apps or bank transfers.",
+        inDevelopment: true,
+      },
+    ],
+  },
+] satisfies readonly {
+  label: string;
+  features: readonly { name: string; desc: string; inDevelopment?: boolean }[];
+}[];
+
+const screenshotCaptions = [
+  "Group dashboard — see who's playing, when and where",
+  "Match view — confirm your spot, check the lineup",
+  "Rankings — live ELO leaderboard across your group",
 ] as const;
 
 export default function FoundingSupportersPage() {
@@ -35,20 +84,19 @@ export default function FoundingSupportersPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-400">
             Wynaxa Sports Tech is building the connected digital ecosystem for
-            padel players, clubs and venues.
+            padel players, clubs and venues — from Bristol to Barcelona and
+            beyond.
           </p>
 
           <div className="mt-16 grid items-start gap-12 lg:grid-cols-[280px_1fr]">
             {/* Founder photo */}
             <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-xl bg-gray-800 lg:mx-0">
-              {/* Replace src with actual founder portrait */}
               <Image
                 src="/founder-portrait.jpg"
                 alt="Christian Shanahan, Founder of Wynaxa Sports Tech"
                 fill
                 className="object-cover"
                 sizes="280px"
-                placeholder="empty"
               />
             </div>
 
@@ -58,8 +106,9 @@ export default function FoundingSupportersPage() {
                 I&rsquo;m Christian, founder of Wynaxa Sports Tech. We&rsquo;ve
                 built and launched the Padel Players App, signed our first
                 commercial venue partner, and we&rsquo;re now building the
-                platform that connects every padel player, club and venue across
-                Ireland and the UK.
+                platform that connects every padel player, club and venue — starting
+                in Bristol and Ireland, and already live in eight languages for
+                the markets where padel is growing fastest.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-gray-300">
                 Before this gets locked into formal investment structures, I
@@ -173,43 +222,54 @@ export default function FoundingSupportersPage() {
             What we built
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-gray-600">
-            The Padel Players App turns a WhatsApp group into a proper club.
+            Everything below is live. Not roadmap, not mockup — in the App
+            Store, in Google Play, being used this week.
           </p>
 
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {features.map((feature) => (
-              <div
-                key={feature}
-                className="rounded-lg border border-gray-200 px-4 py-4 text-center"
-              >
-                <p className="text-sm font-semibold text-foreground">
-                  {feature}
-                </p>
-                {feature === "Booking and payments" && (
-                  <p className="mt-1 text-xs text-accent font-medium">
-                    In development
-                  </p>
-                )}
+          {/* Feature clusters */}
+          <div className="mt-16 grid gap-12 lg:grid-cols-3">
+            {featureClusters.map((cluster) => (
+              <div key={cluster.label}>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-accent">
+                  {cluster.label}
+                </h3>
+                <div className="mt-5 space-y-6">
+                  {cluster.features.map((feature) => (
+                    <div key={feature.name}>
+                      <p className="text-base font-semibold text-foreground">
+                        {feature.name}
+                        {feature.inDevelopment && (
+                          <span className="ml-2 inline-block rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+                            In development
+                          </span>
+                        )}
+                      </p>
+                      <p className="mt-1 text-sm leading-relaxed text-gray-600">
+                        {feature.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Phone screenshot slots */}
-          <div className="mt-16 flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory lg:justify-center lg:overflow-visible">
-            {[1, 2, 3].map((n) => (
-              <div
-                key={n}
-                className="relative flex-none aspect-[9/19.5] w-[220px] snap-center rounded-2xl bg-gray-100 sm:w-[260px]"
-              >
-                {/* Replace with actual phone screenshots */}
-                <Image
-                  src={`/phone-screenshot-${n}.png`}
-                  alt={`Padel Players App screenshot ${n}`}
-                  fill
-                  className="rounded-2xl object-cover"
-                  sizes="260px"
-                  placeholder="empty"
-                />
+          {/* Phone screenshots */}
+          <div className="mt-20 flex gap-8 overflow-x-auto pb-4 snap-x snap-mandatory lg:justify-center lg:overflow-visible">
+            {[1, 2, 3].map((n, i) => (
+              <div key={n} className="flex-none snap-center">
+                <div className="relative aspect-[9/19.5] w-[240px] overflow-hidden rounded-2xl bg-gray-100 sm:w-[280px]">
+                  <Image
+                    src={`/phone-screenshot-${n}.png`}
+                    alt={screenshotCaptions[i]}
+                    fill
+                    className="rounded-2xl object-cover"
+                    sizes="(min-width: 640px) 280px, 240px"
+                  />
+                </div>
+                <p className="mt-3 max-w-[280px] text-center text-sm text-gray-500">
+                  {screenshotCaptions[i]}
+                </p>
               </div>
             ))}
           </div>
@@ -225,17 +285,25 @@ export default function FoundingSupportersPage() {
 
           <div className="mt-8 max-w-3xl space-y-4 text-lg leading-relaxed text-gray-600">
             <p>
-              We&rsquo;re meeting Enterprise Ireland on Tuesday 11th August.
-              Their Pre-Seed Start Fund requires matched co-investment from
-              private backers before their funding is released — so what we bring
-              to that meeting matters.
+              Here&rsquo;s the honest position. We&rsquo;ve built the product,
+              we&rsquo;re in the stores, we have a paying venue and users
+              playing every week. What we don&rsquo;t have yet is the capital to
+              put a salesperson in front of the 3,000-plus padel venues that
+              have opened across Europe in the last three years. That&rsquo;s
+              the gap this closes.
+            </p>
+            <p>
+              We&rsquo;re meeting Enterprise Ireland on Tuesday 11th August
+              2026. Their Pre-Seed Start Fund requires matched co-investment
+              from private backers before their funding is released — so what we
+              bring to that meeting matters.
             </p>
             <p>
               After this point the round moves into formal structures: legal
               documents, fixed terms, defined processes. That&rsquo;s the right
               way to run an investment round, and it&rsquo;s where we&rsquo;re
-              heading. But it also means adding people later costs legal time and
-              money, and the terms stop being ours to shape.
+              heading. But it also means adding people later costs legal time
+              and money, and the terms stop being ours to shape.
             </p>
             <p>
               Right now, this is still a conversation between people who know
@@ -243,29 +311,35 @@ export default function FoundingSupportersPage() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-8 sm:grid-cols-3">
-            <div>
-              <h3 className="text-lg font-semibold text-foreground">
+          <div className="mt-16 grid gap-10 sm:grid-cols-3">
+            <div className="border-l-4 border-accent pl-6">
+              <h3 className="text-xl font-semibold text-foreground">
                 Where the money goes
               </h3>
-              <p className="mt-3 leading-relaxed text-gray-600">
+              <p className="mt-4 leading-relaxed text-gray-600">
                 Product development, customer acquisition, venue partnerships,
                 sales activity.
               </p>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-foreground">
+            <div className="border-l-4 border-accent pl-6">
+              <h3 className="text-xl font-semibold text-foreground">
                 Where we&rsquo;re headed
               </h3>
-              <p className="mt-3 leading-relaxed text-gray-600">
-                More venues across Ireland and the UK, then European expansion.
+              <p className="mt-4 leading-relaxed text-gray-600">
+                Padel is the fastest-growing sport in the world, and it
+                isn&rsquo;t an English-speaking one. The app already ships in
+                eight languages — English, Spanish, Portuguese, Italian,
+                Swedish, French, Hindi and Arabic — covering the markets where
+                padel is growing fastest. Spain and Italy alone have more courts
+                than the rest of Europe combined. We built for that from day one
+                rather than retrofitting it later.
               </p>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-foreground">
+            <div className="border-l-4 border-accent pl-6">
+              <h3 className="text-xl font-semibold text-foreground">
                 What you get
               </h3>
-              <p className="mt-3 leading-relaxed text-gray-600">
+              <p className="mt-4 leading-relaxed text-gray-600">
                 Full terms will be shared before anyone commits a penny. Nothing
                 is decided today.
               </p>
@@ -291,6 +365,20 @@ export default function FoundingSupportersPage() {
               you&rsquo;re in and roughly what you&rsquo;re thinking — it helps
               us understand what&rsquo;s possible before Tuesday.
             </p>
+            <p>
+              We&rsquo;re meeting Enterprise Ireland on Tuesday 11th August
+              2026. Their Pre-Seed Start Fund requires matched private
+              co-investment before their money is released, so walking into that
+              meeting knowing who&rsquo;s behind us genuinely changes the
+              conversation.
+            </p>
+            <p>
+              That&rsquo;s the only reason for the date. Nothing is due on the
+              11th and no money moves — we&rsquo;re simply asking you to tell us
+              now rather than later, so we can go into that room with an accurate
+              picture. The round itself completes by the end of August, with full
+              terms shared with you before anyone commits anything.
+            </p>
           </div>
 
           {/* 7. FORM */}
@@ -305,7 +393,7 @@ export default function FoundingSupportersPage() {
         <div className="mx-auto max-w-3xl px-6 py-16 text-center">
           <div className="space-y-4">
             <p className="text-xl font-semibold text-foreground">
-              Expressions of interest by Tuesday 11th August
+              Expressions of interest by Tuesday 11th August 2026
             </p>
             <p className="text-xl font-semibold text-foreground">
               Round completed by end of August
