@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { getSupabase } from "@/lib/supabase";
 
 const interestOptions = [
   "Yes, count me in",
@@ -113,24 +112,38 @@ export default function InterestForm() {
 
     setSubmitting(true);
 
-    const { error } = await getSupabase().from("investor_interest").insert({
-      name: form.name.trim(),
-      email: form.email.trim(),
-      phone: form.phone.trim() || null,
-      interested: form.interested,
-      amount: resolveAmount(),
-      questions: form.questions.trim() || null,
-    });
+    try {
+      const res = await fetch("/founding-supporters/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim() || null,
+          interested: form.interested,
+          amount: resolveAmount(),
+          questions: form.questions.trim() || null,
+        }),
+      });
 
-    setSubmitting(false);
-
-    if (error) {
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        setSubmitError(
+          data?.error ??
+            "Something went wrong. Please try again or email investors@wynaxa.com directly."
+        );
+        setSubmitting(false);
+        return;
+      }
+    } catch {
       setSubmitError(
         "Something went wrong. Please try again or email investors@wynaxa.com directly."
       );
+      setSubmitting(false);
       return;
     }
 
+    setSubmitting(false);
     setSubmitted(true);
   }
 

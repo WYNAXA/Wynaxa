@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import InterestForm from "./InterestForm";
+import RaiseProgress from "./RaiseProgress";
+
+export const RAISE = {
+  target: 30000,
+  received: 4000,
+  committed: 2250,
+  supporters: 4,
+};
 
 export const metadata: Metadata = {
   title: "Founding Supporters — Wynaxa Sports Tech",
@@ -374,8 +382,10 @@ export default function FoundingSupportersPage() {
             </p>
           </div>
 
+          <RaiseProgress raise={RAISE} />
+
           {/* 7. FORM */}
-          <div className="mt-12">
+          <div>
             <InterestForm />
           </div>
         </div>
