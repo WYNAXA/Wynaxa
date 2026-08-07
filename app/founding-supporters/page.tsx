@@ -284,28 +284,21 @@ export default function FoundingSupportersPage() {
           <div className="mt-8 max-w-3xl space-y-4 text-lg leading-relaxed text-gray-600">
             <p>
               Here&rsquo;s the honest position. We&rsquo;ve built the product,
-              we&rsquo;re in the stores, we have a paying venue and users
-              playing every week. What we don&rsquo;t have yet is the capital to
-              put a salesperson in front of the 3,000-plus padel venues that
-              have opened across Europe in the last three years. That&rsquo;s
-              the gap this closes.
+              we&rsquo;re in both app stores, we have a paying venue partner and
+              players using it every week. What we don&rsquo;t have is the
+              capital to do the unglamorous work that turns a good product into a
+              growing one — acquiring customers, onboarding venues properly, and
+              being there when a club has forty members and a question on a
+              Tuesday night. That&rsquo;s what this closes.
             </p>
             <p>
-              We&rsquo;re meeting Enterprise Ireland on Tuesday 11th August
-              2026. Their Pre-Seed Start Fund requires matched co-investment
-              from private backers before their funding is released — so what we
-              bring to that meeting matters.
-            </p>
-            <p>
-              After this point the round moves into formal structures: legal
-              documents, fixed terms, defined processes. That&rsquo;s the right
-              way to run an investment round, and it&rsquo;s where we&rsquo;re
-              heading. But it also means adding people later costs legal time
-              and money, and the terms stop being ours to shape.
-            </p>
-            <p>
-              Right now, this is still a conversation between people who know
-              each other. That&rsquo;s the window.
+              After this point the round moves into formal structures — legal
+              documents, fixed terms, defined process. That&rsquo;s the right
+              way to run an investment round and it&rsquo;s where we&rsquo;re
+              heading. But it also means adding people later costs legal time and
+              money, and the terms stop being ours to shape. Right now this is
+              still a conversation between people who know each other.
+              That&rsquo;s the window.
             </p>
           </div>
 
@@ -315,8 +308,10 @@ export default function FoundingSupportersPage() {
                 Where the money goes
               </h3>
               <p className="mt-4 leading-relaxed text-gray-600">
-                Product development, customer acquisition, venue partnerships,
-                sales activity.
+                Customer acquisition, venue onboarding, and the support and
+                customer experience work that makes a venue stay. Enterprise
+                Ireland&rsquo;s investment is ring-fenced for specific approved
+                costs — this round funds the work alongside it.
               </p>
             </div>
             <div className="border-l-4 border-accent pl-6">
