@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import InterestForm from "./InterestForm";
 import RaiseProgress from "./RaiseProgress";
+import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
+
+export const revalidate = 60;
 
 export const RAISE = {
   target: 30000,
@@ -9,6 +12,8 @@ export const RAISE = {
   committed: 2250,
   supporters: 4,
 };
+
+export const FX_GBP_TO_EUR = 1.16;
 
 export const metadata: Metadata = {
   title: "Founding Supporters — Wynaxa Sports Tech",
@@ -81,7 +86,55 @@ const screenshotCaptions = [
   "Rankings — live ELO leaderboard across your group",
 ] as const;
 
-export default function FoundingSupportersPage() {
+function parseAmountGbp(raw: unknown): number | null {
+  if (typeof raw !== "string" || !raw.trim()) return null;
+  const cleaned = raw.replace(/[£,]/g, "").trim();
+  const num = Number(cleaned);
+  return Number.isFinite(num) && num > 0 ? num : null;
+}
+
+async function getInterestData(): Promise<{
+  interestEur: number;
+  interestCount: number;
+}> {
+  try {
+    const { data, error } = await getSupabaseAdmin()
+      .from("investor_interest")
+      .select("amount")
+      .in("interested", [
+        "Yes, count me in",
+        "Yes, but I'd like to talk first",
+      ]);
+
+    if (error) {
+      console.error("[founding-supporters] Interest query failed:", error);
+      return { interestEur: 0, interestCount: 0 };
+    }
+
+    let totalGbp = 0;
+    let count = 0;
+
+    for (const row of data ?? []) {
+      const gbp = parseAmountGbp(row.amount);
+      if (gbp !== null) {
+        totalGbp += gbp;
+        count++;
+      }
+    }
+
+    return {
+      interestEur: Math.round(totalGbp * FX_GBP_TO_EUR),
+      interestCount: count,
+    };
+  } catch (err) {
+    console.error("[founding-supporters] Interest query threw:", err);
+    return { interestEur: 0, interestCount: 0 };
+  }
+}
+
+export default async function FoundingSupportersPage() {
+  const { interestEur, interestCount } = await getInterestData();
+
   return (
     <>
       {/* ──────────────── 1. HERO ──────────────── */}
@@ -382,7 +435,11 @@ export default function FoundingSupportersPage() {
             </p>
           </div>
 
-          <RaiseProgress raise={RAISE} />
+          <RaiseProgress
+            raise={RAISE}
+            interest={interestEur}
+            interestCount={interestCount}
+          />
 
           {/* 7. FORM */}
           <div>
