@@ -26,6 +26,7 @@ type FormData = {
   phone: string;
   interested: string;
   amount: string;
+  customAmount: string;
   questions: string;
 };
 
@@ -40,6 +41,13 @@ function validate(data: FormData): FormErrors {
     errors.email = "Enter a valid email address.";
   }
   if (!data.interested) errors.interested = "Please select an option.";
+  if (data.amount === "Other") {
+    if (!data.customAmount.trim()) {
+      errors.customAmount = "Enter an amount.";
+    } else if (Number(data.customAmount) < 100) {
+      errors.customAmount = "Minimum amount is £100.";
+    }
+  }
   return errors;
 }
 
@@ -50,6 +58,7 @@ export default function InterestForm() {
     phone: "",
     interested: "",
     amount: "",
+    customAmount: "",
     questions: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
@@ -66,6 +75,30 @@ export default function InterestForm() {
         return next;
       });
     }
+  }
+
+  function selectAmount(value: string) {
+    if (value !== "Other") {
+      setForm((prev) => ({ ...prev, amount: value, customAmount: "" }));
+      if (errors.customAmount) {
+        setErrors((prev) => {
+          const next = { ...prev };
+          delete next.customAmount;
+          return next;
+        });
+      }
+    } else {
+      update("amount", value);
+    }
+  }
+
+  function resolveAmount(): string | null {
+    if (!form.amount) return null;
+    if (form.amount === "Other") {
+      const num = Number(form.customAmount);
+      return num >= 100 ? String(num) : null;
+    }
+    return form.amount;
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -85,7 +118,7 @@ export default function InterestForm() {
       email: form.email.trim(),
       phone: form.phone.trim() || null,
       interested: form.interested,
-      amount: form.amount || null,
+      amount: resolveAmount(),
       questions: form.questions.trim() || null,
     });
 
@@ -209,9 +242,13 @@ export default function InterestForm() {
       {/* Amount — pill buttons */}
       <fieldset>
         <legend className="block text-sm font-medium text-foreground">
-          If yes, roughly what amount?{" "}
+          If yes, roughly what amount are you thinking?{" "}
           <span className="text-gray-400 font-normal">(optional)</span>
         </legend>
+        <p className="mt-1 text-sm text-gray-500">
+          Anything from &pound;100 upwards. This is indicative only — nothing is
+          committed.
+        </p>
         <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {amountOptions.map((option) => (
             <label key={option} className="cursor-pointer">
@@ -220,7 +257,7 @@ export default function InterestForm() {
                 name="amount"
                 value={option}
                 checked={form.amount === option}
-                onChange={(e) => update("amount", e.target.value)}
+                onChange={(e) => selectAmount(e.target.value)}
                 className="peer sr-only"
               />
               <span className="flex items-center justify-center rounded-lg border-2 border-gray-200 px-4 py-3 text-sm font-semibold text-foreground transition-all peer-checked:border-accent peer-checked:bg-accent/10 peer-checked:text-accent hover:border-gray-300">
@@ -229,6 +266,34 @@ export default function InterestForm() {
             </label>
           ))}
         </div>
+
+        {/* Custom amount input — revealed when "Other" is selected */}
+        {form.amount === "Other" && (
+          <div className="mt-4">
+            <label
+              htmlFor="customAmount"
+              className="block text-sm font-medium text-foreground"
+            >
+              Amount you have in mind (&pound;)
+            </label>
+            <input
+              id="customAmount"
+              type="number"
+              min={100}
+              step={50}
+              required
+              value={form.customAmount}
+              onChange={(e) => update("customAmount", e.target.value)}
+              className="mt-1.5 block w-full rounded-lg border border-gray-300 px-4 py-3 text-foreground placeholder:text-gray-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 sm:w-48"
+              placeholder="750"
+            />
+            {errors.customAmount && (
+              <p className="mt-1.5 text-sm text-red-600">
+                {errors.customAmount}
+              </p>
+            )}
+          </div>
+        )}
       </fieldset>
 
       {/* Questions */}

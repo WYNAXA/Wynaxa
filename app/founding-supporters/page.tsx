@@ -107,8 +107,9 @@ export default function FoundingSupportersPage() {
                 built and launched the Padel Players App, signed our first
                 commercial venue partner, and we&rsquo;re now building the
                 platform that connects every padel player, club and venue — starting
-                in Bristol and Ireland, and already live in eight languages for
-                the markets where padel is growing fastest.
+                with our first commercial venue partner in Bristol, and already
+                live in eight languages across the markets where padel is growing
+                fastest.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-gray-300">
                 Before this gets locked into formal investment structures, I
@@ -148,16 +149,14 @@ export default function FoundingSupportersPage() {
           </p>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* TODO: Replace href with actual iOS App Store link */}
             <BuiltCard
               title="Padel Players App on the App Store"
-              href="#" // TODO: iOS App Store link
+              href="https://apps.apple.com/us/iphone/search?term=padel%20players%20app"
               external
             />
-            {/* TODO: Replace href with actual Google Play link */}
             <BuiltCard
               title="Padel Players App on Google Play"
-              href="#" // TODO: Google Play link
+              href="https://play.google.com/store/apps/details?id=com.wynaxa.padelplayers"
               external
             />
             <BuiltCard
@@ -168,10 +167,9 @@ export default function FoundingSupportersPage() {
               title="Wynaxa Hub, our venue platform"
               href="/sports-tech"
             />
-            {/* TODO: Replace href with actual The Padel Team Bristol link */}
             <BuiltCard
               title="The Padel Team Bristol, our first commercial venue partner"
-              href="#" // TODO: The Padel Team Bristol link
+              href="https://www.thepadelteam.net/"
               external
             />
             <div className="flex items-center rounded-xl border border-gray-200 p-6">
