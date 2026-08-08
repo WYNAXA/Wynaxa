@@ -90,6 +90,56 @@ const CLAIM_STEPS = [
   },
 ];
 
+/* How Hub compares to the incumbents. Wynaxa's column is stated from our own
+   facts; competitor cells are kept factual-neutral (no invented prices) so the
+   contrast carries the point without asserting anything we can't stand behind.
+   Verify competitor cells before each publish — their plans change. */
+const COMPARISON = [
+  {
+    dimension: "Getting listed",
+    wynaxa: "Free — your venue is probably already on the map",
+    playtomic: "Through Playtomic Manager",
+    padelmates: "Through their venue platform",
+  },
+  {
+    dimension: "Monthly software fee",
+    wynaxa: "None on Hub Core",
+    playtomic: "Management-plan tiers",
+    padelmates: "Plan-based",
+  },
+  {
+    dimension: "What you actually pay",
+    wynaxa: "A small % only when you take a payment — from 2.25% for founding venues",
+    playtomic: "Booking commission",
+    padelmates: "Commission or subscription",
+  },
+  {
+    dimension: "Your booking system",
+    wynaxa:
+      "Keep it — link Playtomic, Matchi or your own site and still appear on PPA. Bring bookings in-house when you're ready.",
+    playtomic: "Runs on Playtomic",
+    padelmates: "Runs on Padel Mates",
+  },
+  {
+    dimension: "Player reach",
+    wynaxa: "Players in the Padel Players App near you",
+    playtomic: "Playtomic marketplace",
+    padelmates: "Padel Mates community",
+  },
+  {
+    dimension: "Beyond court booking",
+    wynaxa: "Events, leagues, memberships, vouchers & CRM — in one Hub",
+    playtomic: "Varies by plan",
+    padelmates: "Varies by plan",
+  },
+  {
+    dimension: "Lock-in",
+    wynaxa: "None — cancel anytime, keep your data",
+    playtomic: "Platform-dependent",
+    padelmates: "Platform-dependent",
+  },
+];
+
 export default function HubPage() {
   return (
     <>
@@ -319,6 +369,89 @@ export default function HubPage() {
               on Hub, it chooses what it runs. Wynaxa Sports Tech owns the
               platform; other sports plug into it.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* --------------------------------------------------- HOW HUB COMPARES */}
+      <section className="border-t border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[#F97316]">
+            How Hub compares
+          </p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-[#0F1B33] sm:text-4xl">
+            Keep your booking system. Skip the monthly fee.
+          </h2>
+          <p className="mt-4 max-w-2xl leading-relaxed text-gray-600">
+            Playtomic and Padel Mates want your courts running on their
+            platform. Wynaxa doesn&apos;t. List for free, link the booking system
+            you already use, and still reach players in the Padel Players App —
+            then bring bookings in-house whenever you&apos;re ready.
+          </p>
+
+          <div className="mt-12 overflow-x-auto">
+            <table className="w-full min-w-[720px] border-separate border-spacing-0 text-left align-top">
+              <thead>
+                <tr>
+                  <th className="w-[22%] px-5 pb-4 align-bottom text-sm font-normal text-gray-400">
+                    &nbsp;
+                  </th>
+                  <th className="w-[30%] rounded-t-lg bg-[#0F1B33] px-5 py-4 align-bottom">
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-[#16A6A6]">
+                      Recommended
+                    </span>
+                    <span className="mt-1 block text-lg font-semibold text-white">
+                      Wynaxa Hub
+                    </span>
+                  </th>
+                  <th className="w-[24%] px-5 py-4 align-bottom text-lg font-semibold text-gray-500">
+                    Playtomic
+                  </th>
+                  <th className="w-[24%] px-5 py-4 align-bottom text-lg font-semibold text-gray-500">
+                    Padel Mates
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARISON.map((row, i) => (
+                  <tr key={row.dimension}>
+                    <td className="border-b border-gray-200 px-5 py-5 text-sm font-semibold text-[#0F1B33]">
+                      {row.dimension}
+                    </td>
+                    <td
+                      className={`border-x border-b border-[#0F1B33]/10 bg-white px-5 py-5 text-sm font-medium leading-relaxed text-[#0F1B33] ${
+                        i === COMPARISON.length - 1 ? "rounded-b-lg" : ""
+                      }`}
+                    >
+                      {row.wynaxa}
+                    </td>
+                    <td className="border-b border-gray-200 px-5 py-5 text-sm leading-relaxed text-gray-500">
+                      {row.playtomic}
+                    </td>
+                    <td className="border-b border-gray-200 px-5 py-5 text-sm leading-relaxed text-gray-500">
+                      {row.padelmates}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-6 max-w-3xl text-xs leading-relaxed text-gray-400">
+            Playtomic and Padel Mates details reflect their publicly described
+            models. Features and pricing vary by plan, region and over time —
+            always check their current terms.
+          </p>
+
+          <div className="mt-10">
+            <a
+              href={ONBOARD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-md bg-[#F97316] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            >
+              List your venue free &rarr;
+            </a>
           </div>
         </div>
       </section>
