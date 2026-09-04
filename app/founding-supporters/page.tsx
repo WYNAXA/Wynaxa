@@ -136,7 +136,7 @@ export default async function FoundingSupportersPage() {
   return (
     <>
       {/* ──────────────── 1. HERO ──────────────── */}
-      <section className="bg-[#0B0F12]">
+      <section className="bg-ink">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32">
           <h1 className="max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
             Become a Founding Supporter of the Future of Padel
@@ -433,6 +433,18 @@ export default async function FoundingSupportersPage() {
             </p>
           </div>
 
+          <p className="mt-6 text-lg text-gray-600">
+            Before you decide,{" "}
+            <a
+              href="/founding-supporters/questions"
+              className="font-medium text-accent underline underline-offset-4 hover:text-foreground"
+            >
+              read the full FAQ
+            </a>{" "}
+            — what you&rsquo;d own, what it&rsquo;s worth, and what could go
+            wrong.
+          </p>
+
           <RaiseProgress
             raise={RAISE}
             interest={interestEur}
@@ -480,7 +492,7 @@ export default async function FoundingSupportersPage() {
       </section>
 
       {/* ──────────────── 10. CLOSING ──────────────── */}
-      <section className="border-t border-gray-100 bg-[#0B0F12]">
+      <section className="border-t border-gray-100 bg-ink">
         <div className="mx-auto max-w-3xl px-6 py-24 text-center">
           <p className="text-lg leading-relaxed text-gray-300">
             Thank you for being part of this. Whether you invest or keep

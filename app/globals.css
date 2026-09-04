@@ -16,6 +16,8 @@
   --color-sports: #F97316;
   --color-eco: #22C55E;
   --color-foundry: #A855F7;
+  --color-ink: #0B0F12;
+  --color-surface-risk: #0D3B4F;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
